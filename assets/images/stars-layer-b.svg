@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <polygon id="starB" points="6,0 7.8,4.2 12,4.6 8.8,7.4 9.8,12 6,9.6 2.2,12 3.2,7.4 0,4.6 4.2,4.2" fill="#E6C56A"/>
+  </defs>
+  <use href="#starB" transform="translate(42 176) scale(1)"/>
+  <use href="#starB" transform="translate(96 528) scale(1)"/>
+  <use href="#starB" transform="translate(178 118) scale(1)"/>
+  <use href="#starB" transform="translate(246 402) scale(1)"/>
+  <use href="#starB" transform="translate(318 744) scale(1)"/>
+  <use href="#starB" transform="translate(384 234) scale(1)"/>
+  <use href="#starB" transform="translate(458 620) scale(1)"/>
+  <use href="#starB" transform="translate(522 76) scale(1)"/>
+  <use href="#starB" transform="translate(596 352) scale(1)"/>
+  <use href="#starB" transform="translate(672 808) scale(1)"/>
+  <use href="#starB" transform="translate(734 132) scale(1)"/>
+  <use href="#starB" transform="translate(798 468) scale(1)"/>
+  <use href="#starB" transform="translate(862 702) scale(1)"/>
+  <use href="#starB" transform="translate(926 286) scale(1)"/>
+  <use href="#starB" transform="translate(974 566) scale(1)"/>
+  <use href="#starB" transform="translate(24 842) scale(1)"/>
+  <use href="#starB" transform="translate(84 64) scale(1)"/>
+  <use href="#starB" transform="translate(162 646) scale(1)"/>
+  <use href="#starB" transform="translate(236 884) scale(1)"/>
+  <use href="#starB" transform="translate(304 296) scale(1)"/>
+  <use href="#starB" transform="translate(372 514) scale(1)"/>
+  <use href="#starB" transform="translate(446 948) scale(1)"/>
+  <use href="#starB" transform="translate(536 186) scale(1)"/>
+  <use href="#starB" transform="translate(614 556) scale(1)"/>
+  <use href="#starB" transform="translate(688 24) scale(1)"/>
+  <use href="#starB" transform="translate(764 632) scale(1)"/>
+  <use href="#starB" transform="translate(842 392) scale(1)"/>
+  <use href="#starB" transform="translate(904 914) scale(1)"/>
+  <use href="#starB" transform="translate(962 124) scale(1)"/>
+</svg>
