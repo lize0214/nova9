@@ -308,7 +308,8 @@
     position: absolute;
     top: -8px;
     right: 6px;
-    font-family: "Cormorant Garamond", "Baskerville Old Face", "Palatino Linotype", serif;
+    font-family: "Playfair Display";
+    font-weight: bold;
     font-size: clamp(2.2rem, 7vw, 4rem);
     line-height: 1;
     letter-spacing: 0.06em;
