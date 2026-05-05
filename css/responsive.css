@@ -50,11 +50,22 @@
 
     .menu-toggle {
         display: inline-flex;
-        justify-self: end;
+        order: 3;
+        margin-left: 6px;
     }
 
     .header-inner {
-        grid-template-columns: auto 1fr auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .brand {
+        margin-right: auto;
+    }
+
+    .header-auth {
+        order: 2;
     }
 
     .mobile-nav {
