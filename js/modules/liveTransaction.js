@@ -2,8 +2,7 @@ import { qs } from '../utils/dom.js';
 
 const MAX_ROWS = 5;
 const GLOBAL_SEED = 20260101;
-const MIN_UPDATE_MS = 1100;
-const PUSH_NEW_ROW_EVERY = 4;
+const REFRESH_INTERVAL_MS = 1000;
 
 const platformPool = [
     { name: 'MEGAH5', category: 'SLOT' },
@@ -59,6 +58,12 @@ function generateRowByIndex(index, epoch = 0) {
     };
 }
 
+function getCurrentIndex() {
+    const now = Date.now() / 1000;
+    const interval = 60 + seededRandom(GLOBAL_SEED) * 240;
+    return Math.floor(now / interval);
+}
+
 function generateMaskedAccount(seed) {
     return `65****${100 + Math.floor(seededRandom(seed) * 900)}`;
 }
@@ -83,26 +88,12 @@ function getRankIcon(rankIndex) {
     return '<svg viewBox="0 0 24 24" aria-hidden="true" class="h-3.5 w-3.5 text-amber-400"><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>';
 }
 
-function nudgeRow(row, seed) {
-    const drift = 0.97 + seededRandom(seed + 300) * 0.08;
-    const nextAmount = Math.max(30, Number((row.amount * drift).toFixed(2)));
-    const shouldRotateAccount = seededRandom(seed + 901) > 0.82;
-    const nextAccount = shouldRotateAccount ? generateMaskedAccount(seed + 177) : row.account;
-    return {
-        ...row,
-        account: nextAccount,
-        amount: nextAmount,
-        pulse: seededRandom(seed + 701)
-    };
-}
-
 export function initLiveTransaction() {
     const tbody = qs('#liveTransactionBody');
     if (!tbody) return;
 
-    const startIndex = Math.floor(Date.now() / 1000);
-    let tick = 0;
-    let rows = Array.from({ length: MAX_ROWS }, (_, i) => generateRowByIndex(startIndex - i, 0));
+    let currentIndex = getCurrentIndex();
+    let rows = Array.from({ length: MAX_ROWS }, (_, i) => generateRowByIndex(currentIndex - i, currentIndex));
     let previousAmountMap = new Map();
 
     const renderTable = () => {
@@ -147,26 +138,16 @@ export function initLiveTransaction() {
     };
 
     const stepFeed = () => {
-        tick += 1;
-
-        rows = rows.map((row, index) => nudgeRow(row, GLOBAL_SEED + tick * 10 + index));
-
-        if (tick % PUSH_NEW_ROW_EVERY === 0) {
-            const nextIndex = startIndex + tick;
-            const newRow = generateRowByIndex(nextIndex, tick);
-            rows = [newRow, ...rows].slice(0, MAX_ROWS);
+        const nextIndex = getCurrentIndex();
+        if (nextIndex !== currentIndex) {
+            currentIndex = nextIndex;
+            rows = Array.from({ length: MAX_ROWS }, (_, i) => generateRowByIndex(currentIndex - i, currentIndex));
+            renderTable();
         }
-
-        if (tick % 3 === 0) {
-            const swapIndex = Math.floor(seededRandom(GLOBAL_SEED + tick * 17) * rows.length);
-            rows[swapIndex] = generateRowByIndex(startIndex + tick + swapIndex, tick);
-        }
-
-        renderTable();
     };
 
     renderTable();
-    const timerId = window.setInterval(stepFeed, MIN_UPDATE_MS);
+    const timerId = window.setInterval(stepFeed, REFRESH_INTERVAL_MS);
     window.addEventListener('beforeunload', () => {
         window.clearInterval(timerId);
     }, { once: true });
