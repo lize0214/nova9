@@ -123,7 +123,7 @@ h1 {
     height: 2px;
     margin: 12px auto 0;
     border-radius: 999px;
-    background: linear-gradient(90deg, transparent, rgba(168, 120, 32, 0.55), transparent);
+    background: linear-gradient(90deg, transparent, rgba(210, 174, 89, 0.7), transparent);
 }
 
 .section-head p {
@@ -135,7 +135,7 @@ h1 {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 250, 240, 0.88);
+    background: rgba(9, 9, 9, 0.82);
     border-bottom: 1px solid var(--gold-border);
     backdrop-filter: blur(10px);
     transition: top 180ms ease;
@@ -182,13 +182,15 @@ body.download-bar-visible .site-header {
 .nav-link {
     padding: 8px 14px;
     border-radius: 999px;
-    color: var(--text-main);
+    color: #f1dfb0;
     font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-link.active,
 .nav-link:hover {
-    background: rgba(190, 148, 49, 0.14);
+    background: rgba(210, 174, 89, 0.22);
+    color: #fff9e6;
 }
 
 .menu-toggle {
@@ -216,7 +218,7 @@ body.download-bar-visible .site-header {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle, rgba(201, 162, 73, 0.12) 0%, rgba(150, 112, 34, 0.08) 45%, transparent 75%);
+    background: radial-gradient(circle, rgba(210, 174, 89, 0.2) 0%, rgba(155, 116, 31, 0.12) 45%, transparent 75%);
 }
 
 .hero-content {

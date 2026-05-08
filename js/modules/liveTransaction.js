@@ -114,19 +114,19 @@ export function initLiveTransaction() {
                         : '';
 
             const tr = document.createElement('tr');
-            tr.className = `align-middle text-amber-950${isNewRow ? ' tx-row-enter' : ''}`;
+            tr.className = `align-middle text-amber-100${isNewRow ? ' tx-row-enter' : ''}`;
             const rankIcon = getRankIcon(index);
             const categoryTone = row.category === 'LIVE'
-                ? 'text-violet-700 border-violet-200 bg-violet-50'
+                ? 'text-violet-200 border-violet-300/40 bg-violet-900/30'
                 : row.category === 'FISH'
-                    ? 'text-cyan-700 border-cyan-200 bg-cyan-50'
-                    : 'text-amber-800 border-amber-200 bg-amber-50';
+                    ? 'text-cyan-200 border-cyan-300/40 bg-cyan-900/25'
+                    : 'text-amber-100 border-amber-300/40 bg-amber-900/25';
 
             tr.innerHTML = `
                 <td class="border-b border-amber-100 px-3 py-2.5">
                     <span class="inline-flex items-center gap-2">${rankIcon}<span>${row.account}</span></span>
                 </td>
-                <td class="border-b border-amber-100 px-3 py-2.5 font-semibold text-amber-900 ${amountFlashClass}">${formatAmount(row.amount)}</td>
+                <td class="border-b border-amber-100 px-3 py-2.5 font-semibold text-amber-100 ${amountFlashClass}">${formatAmount(row.amount)}</td>
                 <td class="border-b border-amber-100 px-3 py-2.5">${row.platform}</td>
                 <td class="border-b border-amber-100 px-3 py-2.5"><span class="inline-flex rounded-full border px-2 py-0.5 text-xs font-semibold ${categoryTone}">${row.category}</span></td>
             `;

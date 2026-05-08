@@ -1,13 +1,13 @@
-﻿:root {
-    --bg: #f8f4eb;
-    --bg-soft: #fffaf0;
-    --text-main: #463421;
-    --text-soft: #786049;
-    --gold: #be9431;
-    --gold-deep: #967022;
-    --gold-border: rgba(190, 148, 49, 0.32);
-    --surface: #fff8eb;
-    --shadow: 0 14px 36px rgba(120, 86, 24, 0.10);
+:root {
+    --bg: #070707;
+    --bg-soft: #101010;
+    --text-main: #f7f1de;
+    --text-soft: #d6c79f;
+    --gold: #d2ae59;
+    --gold-deep: #9b741f;
+    --gold-border: rgba(210, 174, 89, 0.38);
+    --surface: #141414;
+    --shadow: 0 14px 36px rgba(0, 0, 0, 0.42);
     --radius-lg: 18px;
     --radius-md: 12px;
     --container: 1120px;

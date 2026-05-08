@@ -15,9 +15,9 @@
 }
 
 .btn-primary {
-    color: #fffdf8;
+    color: #fffef7;
     background: linear-gradient(140deg, #d2ae59 0%, var(--gold) 45%, var(--gold-deep) 100%);
-    box-shadow: 0 10px 26px rgba(132, 96, 26, 0.20);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.36);
 }
 
 .btn-primary:hover {
@@ -68,7 +68,8 @@
     border-radius: 50%;
     cursor: pointer;
     border: 1px solid var(--gold-border);
-    background: rgba(255, 250, 240, 0.9);
+    background: rgba(22, 22, 22, 0.88);
+    color: var(--text-main);
 }
 
 #carouselPrev {
@@ -129,10 +130,10 @@
     max-width: 620px;
     margin: 0 auto;
     padding: 22px;
-    background: linear-gradient(160deg, rgba(255, 251, 241, 0.92), rgba(255, 245, 225, 0.85));
-    border: 1px solid rgba(190, 148, 49, 0.4);
+    background: linear-gradient(160deg, rgba(24, 24, 24, 0.94), rgba(14, 14, 14, 0.9));
+    border: 1px solid rgba(210, 174, 89, 0.42);
     border-radius: var(--radius-lg);
-    box-shadow: 0 16px 38px rgba(120, 86, 24, 0.12);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.4);
 }
 
 .calc-top h3 {
@@ -162,7 +163,7 @@
 .calc-field {
     border: 1px solid var(--gold-border);
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.54);
+    background: rgba(255, 255, 255, 0.04);
     padding: 12px;
 }
 
@@ -191,7 +192,7 @@
     color: var(--gold-deep);
     font-weight: 700;
     font-size: 0.84rem;
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 #commissionRate {
@@ -226,7 +227,7 @@
     align-items: center;
     border: 1px solid var(--gold-border);
     border-radius: 10px;
-    background: #fffdf8;
+    background: rgba(255, 255, 255, 0.06);
     overflow: hidden;
     padding: 0 8px;
 }
@@ -250,7 +251,7 @@
 }
 
 #depositValue::placeholder {
-    color: rgba(120, 96, 73, 0.82);
+    color: rgba(214, 199, 159, 0.75);
     font-size: 0.92rem;
 }
 
@@ -261,9 +262,9 @@
 .calc-result {
     margin-top: 14px;
     padding: 14px;
-    border: 1px solid rgba(190, 148, 49, 0.42);
+    border: 1px solid rgba(210, 174, 89, 0.42);
     border-radius: 12px;
-    background: linear-gradient(135deg, rgba(201, 162, 73, 0.18), rgba(150, 112, 34, 0.12));
+    background: linear-gradient(135deg, rgba(210, 174, 89, 0.2), rgba(155, 116, 31, 0.1));
 }
 
 .calc-result p {
@@ -313,7 +314,7 @@
     font-size: clamp(2.2rem, 7vw, 4rem);
     line-height: 1;
     letter-spacing: 0.06em;
-    color: rgba(168, 120, 32, 0.16);
+    color: rgba(210, 174, 89, 0.2);
     pointer-events: none;
     user-select: none;
 }
@@ -330,15 +331,15 @@
     width: 6px;
     height: 6px;
     border-radius: 999px;
-    background: rgba(168, 120, 32, 0.7);
-    box-shadow: 0 0 6px rgba(168, 120, 32, 0.35);
+    background: rgba(210, 174, 89, 0.85);
+    box-shadow: 0 0 8px rgba(210, 174, 89, 0.45);
 }
 
 .section-forehead-text {
     padding: 5px 12px;
     border-radius: 999px;
     border: 1px solid var(--gold-border);
-    background: rgba(255, 255, 255, 0.62);
+    background: rgba(255, 255, 255, 0.06);
     color: var(--gold-deep);
     font-size: 0.74rem;
     letter-spacing: 0.08em;
@@ -348,15 +349,15 @@
 
 .principle-item {
     border: 1px solid var(--gold-border);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 247, 226, 0.72));
-    box-shadow: 0 10px 28px rgba(120, 86, 24, 0.08);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(210, 174, 89, 0.08));
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.36);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .principle-item:hover {
     transform: translateY(-2px);
-    border-color: rgba(168, 120, 32, 0.46);
-    box-shadow: 0 14px 32px rgba(120, 86, 24, 0.13);
+    border-color: rgba(210, 174, 89, 0.58);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
 }
 
 .principle-key {
@@ -403,7 +404,8 @@
     height: 120px;
     border-radius: 12px;
     border: 1px solid var(--gold-border);
-    background: #fffef9;
+    background: linear-gradient(145deg, rgba(24, 24, 24, 0.9), rgba(10, 10, 10, 0.92));
+    box-shadow: inset 0 1px 0 rgba(210, 174, 89, 0.18), 0 10px 22px rgba(0, 0, 0, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -500,7 +502,7 @@ body.modal-open {
     align-items: center;
     justify-content: center;
     padding: 16px;
-    background: rgba(29, 20, 7, 0.62);
+    background: rgba(6, 6, 6, 0.76);
     backdrop-filter: blur(4px);
     opacity: 1;
     visibility: visible;
@@ -519,26 +521,28 @@ body.modal-open {
     width: min(92vw, 760px);
     max-height: 92vh;
     border-radius: 18px;
-    border: 1px solid rgba(237, 201, 117, 0.65);
-    background: linear-gradient(165deg, rgba(255, 252, 245, 0.98), rgba(255, 246, 222, 0.95));
-    box-shadow: 0 22px 56px rgba(40, 26, 8, 0.35);
+    border: 1px solid rgba(210, 174, 89, 0.62);
+    background: linear-gradient(165deg, rgba(22, 22, 22, 0.96), rgba(10, 10, 10, 0.95));
+    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.56);
     padding: 14px;
+    display: flex;
+    flex-direction: column;
 }
 
 .promo-modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: static;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 34px;
     height: 34px;
+    margin-left: auto;
+    margin-bottom: 8px;
     padding: 0;
     border-radius: 999px;
-    border: 1px solid rgba(190, 148, 49, 0.45);
-    background: rgba(255, 255, 255, 0.95);
-    color: #8a6520;
+    border: 1px solid rgba(210, 174, 89, 0.52);
+    background: rgba(255, 255, 255, 0.08);
+    color: #f3deb0;
     cursor: pointer;
 }
 
@@ -551,8 +555,8 @@ body.modal-open {
 
 .promo-modal-media {
     border-radius: 12px;
-    border: 1px solid rgba(190, 148, 49, 0.35);
-    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(210, 174, 89, 0.4);
+    background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -571,6 +575,7 @@ body.modal-open {
 .promo-modal-caption {
     margin-top: 10px;
     text-align: center;
+    color: var(--text-main);
 }
 
 /* 区块滚动进入动画：50% 可见阈值后触发一次，时长 500ms。 */
