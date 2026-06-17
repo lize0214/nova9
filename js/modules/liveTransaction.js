@@ -1,4 +1,5 @@
-import { qs } from '../utils/dom.js';
+import i18n from '../../src/i18n/index.js';
+import { formatCurrency, qs } from '../utils/dom.js';
 
 const MAX_ROWS = 5;
 const GLOBAL_SEED = 20260101;
@@ -68,8 +69,8 @@ function generateMaskedAccount(seed) {
     return `65****${100 + Math.floor(seededRandom(seed) * 900)}`;
 }
 
-function formatAmount(amount) {
-    return `SGD ${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+function formatCategory(category) {
+    return i18n.t(`liveTransaction.categories.${category}`, { defaultValue: category });
 }
 
 function getRankIcon(rankIndex) {
@@ -126,9 +127,9 @@ export function initLiveTransaction() {
                 <td class="border-b border-amber-100 px-3 py-2.5">
                     <span class="inline-flex items-center gap-2">${rankIcon}<span>${row.account}</span></span>
                 </td>
-                <td class="border-b border-amber-100 px-3 py-2.5 font-semibold text-amber-100 ${amountFlashClass}">${formatAmount(row.amount)}</td>
+                <td class="border-b border-amber-100 px-3 py-2.5 font-semibold text-amber-100 ${amountFlashClass}">${formatCurrency(row.amount)}</td>
                 <td class="border-b border-amber-100 px-3 py-2.5">${row.platform}</td>
-                <td class="border-b border-amber-100 px-3 py-2.5"><span class="inline-flex rounded-full border px-2 py-0.5 text-xs font-semibold ${categoryTone}">${row.category}</span></td>
+                <td class="border-b border-amber-100 px-3 py-2.5"><span class="inline-flex rounded-full border px-2 py-0.5 text-xs font-semibold ${categoryTone}">${formatCategory(row.category)}</span></td>
             `;
             tbody.appendChild(tr);
             nextAmountMap.set(row.id, row.amount);

@@ -1,4 +1,3 @@
-﻿import { APP_CONFIG } from '../config.js';
 import { qs } from '../utils/dom.js';
 
 // 导航模块：处理移动端开关、滚动高亮和锚点滚动。
@@ -62,6 +61,4 @@ export function initNavigation() {
         });
     }, { passive: true });
 
-    const cta = document.getElementById('ctaJoin');
-    if (cta) cta.href = APP_CONFIG.telegramUrl;
 }

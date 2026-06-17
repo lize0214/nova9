@@ -1,6 +1,7 @@
 ﻿﻿import { qs } from '../utils/dom.js';
 
-// 跑马灯模块：复制一份节点并使用 CSS 动画，实现无缝循环。
+const SPEED = 150;
+
 export function initProviderMarquee() {
     const marquee = qs('#providerMarquee');
     const track = qs('#providerTrack');
@@ -13,7 +14,8 @@ export function initProviderMarquee() {
         const clones = Array.from(targetTrack.children).map((node) => node.cloneNode(true));
         clones.forEach((clone) => targetTrack.appendChild(clone));
         targetTrack.dataset.marqueeReady = '1';
-        targetTrack.style.animation = `${animationName} 20s linear infinite`;
+        const duration = 2 * clones.length * SPEED / 100;
+        targetTrack.style.animation = `${animationName} ${duration}s linear infinite`;
         targetTrack.style.animationPlayState = 'running';
         return targetTrack;
     };

@@ -20,7 +20,6 @@ body::after {
 
 body::before {
     opacity: 0.26;
-    background-image: url("../assets/images/stars-layer-a.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,13 +29,20 @@ body::before {
 
 body::after {
     opacity: 0.18;
-    background-image: url("../assets/images/stars-layer-b.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.22));
     animation: sparkleTwinkleB 4.2s ease-in-out infinite;
     animation-delay: 0.5s;
+}
+
+body.bg-loaded::before {
+    background-image: url("https://cdn.nova9sg.net/img/stars-layer-a.svg");
+}
+
+body.bg-loaded::after {
+    background-image: url("https://cdn.nova9sg.net/img/stars-layer-b.svg");
 }
 
 header,

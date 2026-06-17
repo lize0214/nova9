@@ -1,7 +1,8 @@
 ﻿// 全局配置中心：所有可变配置都集中在这里，便于后期维护。
 export const APP_CONFIG = {
-    siteName: 'Mega Rich Club',
-    telegramUrl: 'https://t.me/addlist/mehkrbdZ67RjZmVl',
+    siteName: 'NOVA9 SG',
+    telegram: 'Nova9sg_Bot',
+    whatsapp: '60179336870',
     theme: {
         primary: '#be9431',
         primaryDeep: '#967022',
@@ -14,33 +15,75 @@ export const APP_CONFIG = {
         defaultRate: 25,
         monthlyFactor: 30
     },
+    promoModal: {
+        enabled: false
+    },
     banners: [
-        './assets/images/banner-00.png',
-        './assets/images/banner-01.jpg',
-        './assets/images/banner-02.png',
-        './assets/images/banner-03.jpg',
-        './assets/images/banner-04.png',
-        './assets/images/banner-05.png'
-    ],
-    brands: [
-        { name: 'POB88', image: './assets/images/brand-pob88.png', url: 'https://pob88.vip/RFSGPARTNERSHIP1' },
-        { name: 'UFAWIN9', image: './assets/images/brand-ufawin9.png', url: 'https://ufawin9.vip/RFSGPARTNERSHIP2' },
-        { name: 'MBS9', image: './assets/images/brand-mbs9.png', url: 'https://mbs9.com/RFSGPARTNERSHIP3' },
-        { name: 'SGD8', image: './assets/images/brand-sgd8.png', url: 'https://sgd8.com/RFSGPARTNERSHIP5' },
-        { name: 'MRSG8', image: './assets/images/brand-mrsg8.png', url: 'https://mrsg8.com/RFSGPARTNERSHIP6' },
-        { name: 'SINGBET8', image: './assets/images/brand-singbet8.png', url: 'https://singbet8.com/RFSGPARTNERSHIP7' },
-        { name: '1XHUAT', image: './assets/images/brand-1xhuat.png', url: 'https://1xhuat.com/RFSGPARTNERSHIP8' },
-        { name: '1XSGD', image: './assets/images/brand-1xsgd.png', url: 'https://1xsgd.org/RFSGPARTNERSHIP9' },
-        { name: '1XSANDS', image: './assets/images/brand-1xsands.png', url: 'https://1xsands.com/RFSGPARTNERSHIP10' },
-        { name: '1XME8', image: './assets/images/brand-1xme8.png', url: 'https://1xme8.com/RFSGPARTNERSHIP11' },
-        { name: '1XACE', image: './assets/images/brand-1xace.png', url: 'https://1xace.com/RFSGPARTNERSHIP12' }
+        'https://cdn.nova9sg.net/img/banner-00.png',
+        'https://cdn.nova9sg.net/img/banner-01.png',
+        'https://cdn.nova9sg.net/img/banner-02.png',
+        'https://cdn.nova9sg.net/img/banner-03.png'
     ],
     providers: [
-        { name: 'Pragmatic', image: './assets/images/provider-pragmatic.png' },
-        { name: 'Evolution', image: './assets/images/provider-evolution.webp' },
-        { name: 'Jili', image: './assets/images/provider-jili.jpg' },
-        { name: 'Spade', image: './assets/images/provider-spade.webp' },
-        { name: 'Sexy', image: './assets/images/provider-sexy.png' },
-        { name: 'Pussy888', image: './assets/images/provider-pussy.webp' }
+        {
+            "name": "AceWin",
+            "image": "https://cdn.nova9sg.net/img/provider-AceWin.png"
+        },
+        {
+            "name": "EVO888H5",
+            "image": "https://cdn.nova9sg.net/img/provider-EVO888H5_Horizontal.png"
+        },
+        {
+            "name": "FACHAI",
+            "image": "https://cdn.nova9sg.net/img/provider-FACHAI.png"
+        },
+        {
+            "name": "JILI",
+            "image": "https://cdn.nova9sg.net/img/provider-JILI.png"
+        },
+        {
+            "name": "MEGA888",
+            "image": "https://cdn.nova9sg.net/img/provider-MEGA888.png"
+        },
+        {
+            "name": "MEGAH5",
+            "image": "https://cdn.nova9sg.net/img/provider-MEGAH5.png"
+        },
+        {
+            "name": "Rich88",
+            "image": "https://cdn.nova9sg.net/img/provider-Rich88.png"
+        },
+        {
+            "name": "SCR888H5",
+            "image": "https://cdn.nova9sg.net/img/provider-SCR888H5.png"
+        },
+        {
+            "name": "WFLogo",
+            "image": "https://cdn.nova9sg.net/img/provider-WFLogo.png"
+        },
+        {
+            "name": "EpicWin",
+            "image": "https://cdn.nova9sg.net/img/provider-epicwin.png"
+        },
+        {
+            "name": "EvolutionGaming",
+            "image": "https://cdn.nova9sg.net/img/provider-evolutiongaming.png"
+        },
+        {
+            "name": "Lucky365",
+            "image": "https://cdn.nova9sg.net/img/provider-lucky365.png"
+        },
+        {
+            "name": "SexyBaccarat",
+            "image": "https://cdn.nova9sg.net/img/provider-sexybaccarat.png"
+        },
+        {
+            "name": "VPower",
+            "image": "https://cdn.nova9sg.net/img/provider-vpower.png"
+        },
+        {
+            "name": "YouLianGaming",
+            "image": "https://cdn.nova9sg.net/img/provider-youliangaming.png"
+        }
     ]
 };

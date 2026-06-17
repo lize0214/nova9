@@ -1,6 +1,6 @@
-﻿﻿import { qs } from '../utils/dom.js';
+import { qs } from '../utils/dom.js';
 
-// 横幅跑马灯：双份内容无缝滚动，悬停自动暂停，按钮可手动微调。
+// 横幅跑马灯：双份内容无缝滚动，按钮可手动微调。
 export function initBannerCarousel() {
     const track = qs('#bannerTrack');
     const viewport = qs('[data-carousel-viewport]');
@@ -8,7 +8,6 @@ export function initBannerCarousel() {
     const nextButton = qs('#carouselNext');
     if (!track || !viewport) return;
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const baseItems = Array.from(track.children);
     if (baseItems.length === 0) return;
 
@@ -42,9 +41,9 @@ export function initBannerCarousel() {
     }
 
     function tick(now) {
-        const deltaSeconds = (now - previousTimestamp) / 1000;
+        const deltaSeconds = Math.min((now - previousTimestamp) / 1000, 0.5);
         previousTimestamp = now;
-        if (!isPaused && !prefersReducedMotion && loopWidth > 0) {
+        if (!isPaused && loopWidth > 0) {
             offsetX += speedPxPerSecond * deltaSeconds;
             normalizeOffset();
             renderOffset();
@@ -62,34 +61,40 @@ export function initBannerCarousel() {
     if (prevButton) prevButton.addEventListener('click', () => manualMove(-manualStep));
     if (nextButton) nextButton.addEventListener('click', () => manualMove(manualStep));
 
-    viewport.addEventListener('mouseenter', () => {
-        isPaused = true;
-    });
-    viewport.addEventListener('mouseleave', () => {
-        isPaused = false;
-    });
-
-    document.addEventListener('visibilitychange', () => {
-        isPaused = document.hidden;
-    });
-
     window.addEventListener('resize', () => {
         refreshLoopWidth();
         normalizeOffset();
         renderOffset();
     });
 
-    track.querySelectorAll('img').forEach((image) => {
-        image.addEventListener('load', () => {
-            refreshLoopWidth();
-            normalizeOffset();
-            renderOffset();
-        }, { once: true });
-    });
+    function ensureLoopWidth() {
+        track.querySelectorAll('img').forEach((image) => {
+            if (image.complete) {
+                refreshLoopWidth();
+            } else {
+                image.addEventListener('load', () => {
+                    refreshLoopWidth();
+                    normalizeOffset();
+                    renderOffset();
+                }, { once: true });
+            }
+        });
+        refreshLoopWidth();
+    }
 
-    refreshLoopWidth();
-    renderOffset();
-    frameId = window.requestAnimationFrame(tick);
+    function startLoop() {
+        ensureLoopWidth();
+        if (loopWidth <= 0) {
+            frameId = window.requestAnimationFrame(startLoop);
+            return;
+        }
+        normalizeOffset();
+        renderOffset();
+        previousTimestamp = performance.now();
+        frameId = window.requestAnimationFrame(tick);
+    }
+
+    startLoop();
     window.addEventListener('beforeunload', () => {
         if (frameId) window.cancelAnimationFrame(frameId);
     });

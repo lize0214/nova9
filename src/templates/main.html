@@ -1,0 +1,763 @@
+<div id="topDownloadBar" class="download-bar fixed left-0 right-0 top-0 z-[1100] border-b border-amber-300/60 bg-black/90 px-3 py-2 backdrop-blur-sm">
+    <div class="mx-auto flex w-[min(1100px,92vw)] items-center justify-between gap-3 text-left">
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-100 sm:text-sm">
+            <i data-lucide="smartphone" aria-hidden="true" class="h-4 w-4"></i>
+            {{downloadBar.text}}
+        </span>
+        <a href="https://dn.nova9sg.me" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-red-700 via-amber-500 to-amber-300 px-3 py-1.5 text-xs font-semibold text-white transition hover:brightness-110 sm:text-sm">
+            {{downloadBar.cta}}
+            <i data-lucide="download" aria-hidden="true" class="h-4 w-4"></i>
+        </a>
+    </div>
+</div>
+
+<header id="siteHeader" class="site-header sticky top-0 z-40 backdrop-blur-md">
+    <div class="container header-inner mx-auto grid w-[min(1100px,92vw)] grid-cols-[auto_1fr_auto_auto] items-center gap-4 py-3">
+        <a href="#home" aria-label="{{common.homeAria}}" class="brand inline-flex items-center">
+            <img src="https://cdn.nova9sg.net/img/nova9-logo.png" alt="NOVA9 Logo" class="brand-logo h-20 w-auto sm:h-20" loading="lazy" decoding="async">
+        </a>
+        <button id="menuToggle" type="button" aria-label="{{common.menuAria}}" class="menu-toggle justify-self-end rounded-lg px-3 py-1.5 shadow-sm md:hidden" aria-expanded="false">☰</button>
+        <nav id="siteNav" aria-label="{{common.navAria}}" class="site-nav nav-panel absolute left-0 right-0 top-[64px] flex-col gap-2 p-3 md:static md:flex md:flex-row md:items-center md:p-0">
+            <a href="#home" class="nav-link active inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold">
+                <i data-lucide="home" aria-hidden="true" class="h-4 w-4"></i>
+                {{nav.home}}
+            </a>
+            <a href="#live-transaction" class="nav-link inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold">
+                <i data-lucide="activity" aria-hidden="true" class="h-4 w-4"></i>
+                {{nav.liveTransaction}}
+            </a>
+            <a href="#commission" class="nav-link inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold">
+                <i data-lucide="calculator" aria-hidden="true" class="h-4 w-4"></i>
+                {{nav.commission}}
+            </a>
+            <a href="#how-it-works" class="nav-link inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold">
+                <i data-lucide="list-ordered" aria-hidden="true" class="h-4 w-4"></i>
+                {{nav.steps}}
+            </a>
+            <a href="#providers" class="nav-link inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold">
+                <i data-lucide="building-2" aria-hidden="true" class="h-4 w-4"></i>
+                {{nav.providers}}
+            </a>
+            <a href="#about" class="nav-link inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold">
+                <i data-lucide="info" aria-hidden="true" class="h-4 w-4"></i>
+                {{nav.about}}
+            </a>
+        </nav>
+        <div class="header-auth flex items-center justify-self-end gap-2">
+            <a href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="header-login-btn inline-flex items-center gap-2 rounded-full px-2.5 py-1.5 text-xs font-semibold transition hover:-translate-y-0.5 sm:px-4 sm:py-2 sm:text-sm">
+                <i data-lucide="log-in" aria-hidden="true" class="hidden h-4 w-4 sm:block"></i>
+                {{nav.login}}
+            </a>
+            <a href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="header-register-btn inline-flex items-center gap-2 rounded-full px-2.5 py-1.5 text-xs font-semibold transition hover:-translate-y-0.5 sm:px-4 sm:py-2 sm:text-sm">
+                <i data-lucide="user-plus" aria-hidden="true" class="hidden h-4 w-4 sm:block"></i>
+                {{nav.register}}
+            </a>
+        </div>
+    </div>
+    <div id="langSwitchHost" class="pointer-events-auto absolute right-3 top-1/2 z-50 hidden -translate-y-1/2 md:inline-flex"></div>
+</header>
+
+<main class="relative z-10">
+    <div class="mainContent mt-16">
+        <section id="home" data-reveal class="hero section relative flex flex-col items-center gap-6 transition-all duration-500 ease-out will-change-transform opacity-100 translate-y-0">
+            <canvas id="starfield" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full opacity-20"></canvas>
+            <div class="container hero-content relative mx-auto w-[min(1100px,92vw)] text-center">
+                <div class="section-forehead" aria-hidden="true">
+                    <span class="section-forehead-dot"></span>
+                    <span class="section-forehead-text">{{hero.eyebrow}}</span>
+                    <span class="section-forehead-dot"></span>
+                </div>
+                <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">{{hero.title}}</h1>
+                <h1 class="mt-4 inline-block pb-[0.12em] text-4xl font-bold leading-normal tracking-tight sm:text-5xl lg:text-6xl gold-gradient">{{hero.subtitle}}</h1>
+                <p class="mx-auto mt-4 max-w-2xl text-base sm:text-lg">{{hero.description}}</p>
+                <div id="heroStats" class="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+                    <article class="stat-card rounded-2xl p-5 backdrop-blur-sm">
+                        <h2 data-counter data-target="40000" data-suffix="+" class="text-4xl font-semibold leading-none">{{hero.players}}</h2>
+                        <p class="mt-2 text-sm">{{hero.players}}</p>
+                    </article>
+                    <article class="stat-card rounded-2xl p-5 backdrop-blur-sm">
+                        <h2 data-counter data-target="11" data-suffix="m+" class="text-4xl font-semibold leading-none">{{hero.paidOut}}</h2>
+                        <p class="mt-2 text-sm">{{hero.paidOut}}</p>
+                    </article>
+                </div>
+                <a id="ctaJoin" href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5">
+                    {{hero.cta}}
+                </a>
+            </div>
+            <div class="container section-shell mx-auto w-[min(1100px,92vw)]">
+                <div class="section-forehead" aria-hidden="true">
+                    <span class="section-forehead-dot"></span>
+                    <span class="section-forehead-text">{{hero.campaignEyebrow}}</span>
+                    <span class="section-forehead-dot"></span>
+                </div>
+                <div id="bannerCarousel" class="carousel relative mt-10">
+                    <button id="carouselPrev" type="button" class="carousel-btn left-2" aria-label="Previous">
+                        <i data-lucide="chevron-left" aria-hidden="true" class="h-5 w-5"></i>
+                    </button>
+                    <div data-carousel-viewport class="carousel-viewport overflow-hidden rounded-2xl [scrollbar-width:none]">
+                        <div id="bannerTrack" class="carousel-track flex w-max gap-4 py-2 will-change-transform"></div>
+                    </div>
+                    <button id="carouselNext" type="button" class="carousel-btn right-2" aria-label="Next">
+                        <i data-lucide="chevron-right" aria-hidden="true" class="h-5 w-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="live-transaction" data-reveal class="section section-soft flex items-start opacity-0 translate-y-6 transition-all duration-500 ease-out will-change-transform">
+            <div class="container section-shell mx-auto w-[min(1100px,92vw)]">
+                <span class="section-mark" aria-hidden="true">01</span>
+                <div class="section-forehead" aria-hidden="true">
+                    <span class="section-forehead-dot"></span>
+                    <span class="section-forehead-text">{{liveTransaction.eyebrow}}</span>
+                    <span class="section-forehead-dot"></span>
+                </div>
+                <div class="section-head text-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">{{liveTransaction.title}}</h2>
+                    <p class="mt-2">{{liveTransaction.description}}</p>
+                </div>
+                <article class="mx-auto mt-8 w-full max-w-5xl rounded-3xl border border-amber-300/50 bg-white/10 p-4 shadow-[0_16px_36px_rgba(0,0,0,0.4)] backdrop-blur-sm sm:p-6">
+                    <div class="flex items-center justify-between gap-3 border-b border-amber-300/45 pb-4">
+                        <p class="text-xs font-semibold tracking-[0.16em] text-amber-100/75">{{liveTransaction.boardLabel}}</p>
+                        <span class="inline-flex items-center gap-1.5 rounded-full border border-amber-300/80 bg-black/45 px-3 py-1 text-xs font-semibold text-amber-100">
+                            <span class="h-2 w-2 animate-pulse rounded-full bg-red-500"></span>
+                            {{liveTransaction.liveBadge}}
+                        </span>
+                    </div>
+                    <div class="mt-4 overflow-x-auto">
+                        <table class="min-w-full border-separate border-spacing-0 text-left text-sm">
+                            <thead>
+                                <tr class="text-xs font-semibold tracking-wide text-amber-100/85">
+                                    <th class="rounded-l-xl border border-amber-300/50 bg-black/45 px-3 py-2">{{liveTransaction.member}}</th>
+                                    <th class="border-y border-amber-300/50 bg-black/45 px-3 py-2">{{liveTransaction.amount}}</th>
+                                    <th class="border-y border-amber-300/50 bg-black/45 px-3 py-2">{{liveTransaction.platform}}</th>
+                                    <th class="rounded-r-xl border border-amber-300/50 bg-black/45 px-3 py-2">{{liveTransaction.category}}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="liveTransactionBody"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="commission" data-reveal class="section section-soft flex items-center opacity-0 translate-y-6 transition-all duration-500 ease-out will-change-transform">
+            <div class="container section-shell mx-auto w-[min(1100px,92vw)]">
+                <span class="section-mark" aria-hidden="true">02</span>
+                <div class="section-forehead" aria-hidden="true">
+                    <span class="section-forehead-dot"></span>
+                    <span class="section-forehead-text">{{commission.eyebrow}}</span>
+                    <span class="section-forehead-dot"></span>
+                </div>
+                <div class="section-head text-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">{{commission.title}}</h2>
+                    <p class="mt-2">{{commission.description}}</p>
+                </div>
+                <article class="calc-panel mx-auto mt-10 max-w-2xl rounded-3xl p-6 backdrop-blur-sm sm:p-8">
+                    <div class="calc-fields">
+                        <div class="calc-field">
+                            <label for="commissionRate" class="field-label">{{commission.rate}}</label>
+                            <div class="range-row">
+                                <input id="commissionRate" type="range" min="1" max="50" step="1" value="25" class="h-2 w-full cursor-pointer appearance-none rounded-lg">
+                                <span id="commissionRateText" class="rate-pill">25%</span>
+                            </div>
+                        </div>
+                        <div class="calc-field">
+                            <label for="depositValue" class="field-label">{{commission.deposits}}</label>
+                            <div class="input-wrap">
+                                <span class="input-prefix">SGD</span>
+                                <input id="depositValue" type="number" min="0" step="100" placeholder="{{commission.depositPlaceholder}}" class="w-full rounded-xl py-3 pr-4 outline-none transition">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-result mt-6 rounded-2xl p-4">
+                        <p class="text-sm"><span>{{commission.daily}}</span><strong id="dailyCommission">SGD 0.00</strong></p>
+                        <p class="mt-2 text-sm"><span>{{commission.monthly}}</span><strong id="monthlyCommission">SGD 0.00</strong></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="how-it-works" data-reveal class="section section-soft flex items-start opacity-0 translate-y-6 transition-all duration-500 ease-out will-change-transform">
+            <div class="container section-shell mx-auto w-[min(1100px,92vw)]">
+                <span class="section-mark" aria-hidden="true">03</span>
+                <div class="section-forehead" aria-hidden="true">
+                    <span class="section-forehead-dot"></span>
+                    <span class="section-forehead-text">{{steps.eyebrow}}</span>
+                    <span class="section-forehead-dot"></span>
+                </div>
+                <div class="section-head text-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">{{steps.title}}</h2>
+                    <p class="mt-2">{{steps.description}}</p>
+                </div>
+                <div class="steps-grid mt-10 grid gap-4 md:grid-cols-3">
+                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">01</p>
+                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
+                            <i data-lucide="user-plus" aria-hidden="true" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold">
+                            <a href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 rounded-md px-1 hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70">
+                                {{steps.registerTitle}}
+                                <i data-lucide="external-link" aria-hidden="true" class="h-4 w-4"></i>
+                            </a>
+                        </h3>
+                        <p class="mt-2 text-sm">{{steps.registerDescription}}</p>
+                    </article>
+                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">02</p>
+                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
+                            <i data-lucide="badge-check" aria-hidden="true" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold">{{steps.verifyTitle}}</h3>
+                        <p class="mt-2 text-sm">{{steps.verifyDescription}}</p>
+                    </article>
+                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">03</p>
+                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
+                            <i data-lucide="log-in" aria-hidden="true" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold">{{steps.loginTitle}}</h3>
+                        <p class="mt-2 text-sm">{{steps.loginDescription}}</p>
+                    </article>
+                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">04</p>
+                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
+                            <i data-lucide="wallet" aria-hidden="true" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold">{{steps.depositTitle}}</h3>
+                        <p class="mt-2 text-sm">{{steps.depositDescription}}</p>
+                    </article>
+                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">05</p>
+                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
+                            <i data-lucide="gamepad-2" aria-hidden="true" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold">{{steps.playTitle}}</h3>
+                        <p class="mt-2 text-sm">{{steps.playDescription}}</p>
+                    </article>
+                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">06</p>
+                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
+                            <i data-lucide="banknote" aria-hidden="true" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold">{{steps.withdrawTitle}}</h3>
+                        <p class="mt-2 text-sm">{{steps.withdrawDescription}}</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="providers" data-reveal class="section flex items-start opacity-0 translate-y-6 transition-all duration-500 ease-out will-change-transform">
+            <div class="container section-shell mx-auto w-[min(1100px,92vw)]">
+                <span class="section-mark" aria-hidden="true">04</span>
+                <div class="section-forehead" aria-hidden="true">
+                    <span class="section-forehead-dot"></span>
+                    <span class="section-forehead-text">{{providers.eyebrow}}</span>
+                    <span class="section-forehead-dot"></span>
+                </div>
+                <div class="section-head text-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">{{providers.title}}</h2>
+                    <p class="mt-2">{{providers.description}}</p>
+                </div>
+                <div id="providerMarquee" class="provider-marquee mt-10 overflow-hidden rounded-2xl p-3 backdrop-blur-sm">
+                    <div id="providerTrack" class="provider-track flex w-max gap-4 will-change-transform"></div>
+                    <div id="providerTrackReverse" class="provider-track mt-3 flex w-max gap-4 will-change-transform"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section section-soft">
+            <div class="container section-shell mx-auto w-[min(1100px,92vw)]">
+                <span class="section-mark" aria-hidden="true">05</span>
+                <div class="section-forehead" aria-hidden="true">
+                    <span class="section-forehead-dot"></span>
+                    <span class="section-forehead-text">{{about.eyebrow}}</span>
+                    <span class="section-forehead-dot"></span>
+                </div>
+                <div class="section-head text-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">{{about.title}}</h2>
+                    <p class="mt-2">{{about.description}}</p>
+                </div>
+            </div>
+            <div class="seo-wrap">
+                <section class="seo-card hero-card">
+                    <p class="footer-title">NOVA9SG Online Casino and Gaming Platform in Singapore</p>
+                    <p class="footer-paragraph">
+                        NOVA9SG offers a modern online casino and gaming experience for users looking for casino-style entertainment, live dealer games, slot games, sports betting markets, and promotional rewards. The platform is designed with smooth navigation, mobile-friendly access, and secure account features across desktop and mobile devices.
+                    </p>
+                    <p class="footer-paragraph">
+                        Whether you enjoy spinning popular slots, exploring interactive live casino tables, or following major sports events, NOVA9SG brings multiple gaming categories together in one place. With a
+                        <a href="https://nova9sg1.me/" class="text-link">mobile-friendly online casino platform</a>,
+                        simple account access, and convenient payment options, users can explore available entertainment features where access is permitted.
+                    </p>
+                    <p class="footer-paragraph">
+                        NOVA9SG focuses on variety, accessibility, and responsible gaming. From slots and live dealer games to sports betting and ongoing promotions, the platform is built for users searching for a complete
+                        <a href="https://nova9sg1.me/" class="text-link">online casino Singapore</a>
+                        experience with clear navigation and reliable platform support.
+                    </p>
+                </section>
+
+                <section class="footer-box-sub">
+                    <h2 class="h2-footer-title section-title">Why Choose NOVA9SG Online Casino</h2>
+                    <div class="card-grid card-grid-2">
+                        <div class="seo-card feature-card">
+                            <h3 class="h3-footer-title">Live Casino Games with Real-Time Interaction</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG features a live casino section for users who enjoy real-time table gaming. Players can explore popular live dealer options such as live blackjack, live roulette, live baccarat, dragon tiger, sic bo, and other interactive casino formats.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Live Blackjack:</b> A classic card game where players aim to build a stronger hand than the dealer.</li>
+                                <li><b>Live Roulette:</b> Place bets in real time and follow the spinning wheel as outcomes are revealed.</li>
+                                <li><b>Live Baccarat:</b> A popular table game where players can back the banker, player, or tie.</li>
+                                <li><b>Live Casino Variants:</b> Additional real-time games that add variety to the live casino experience.</li>
+                            </ul>
+                            <p class="footer-paragraph">
+                                With live casino providers such as Sexy Baccarat, BG Gaming, CT855 Live Casino, YEEBET, WM, and Dream Gaming, NOVA9SG delivers a more immersive table gaming experience for users who prefer real-time play.
+                            </p>
+                        </div>
+                        <div class="seo-card feature-card">
+                            <h3 class="h3-footer-title">Popular Slots, Pokies, and High-Variety Game Options</h3>
+                            <p class="footer-paragraph">
+                                Slot games are one of the main categories at NOVA9SG. The platform features a broad range of slot-style games across different themes, mechanics, volatility levels, and bonus formats.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Classic Slots:</b> Simple reel-based games with familiar slot mechanics.</li>
+                                <li><b>Video Slots:</b> Modern slot games with free spins, bonus rounds, multipliers, and visual features.</li>
+                                <li><b>Progressive Jackpot Games:</b> Selected games may include growing prize pools and jackpot-style mechanics.</li>
+                                <li><b>Feature-Rich Slots:</b> Games with themed bonuses, special symbols, dynamic reels, and varied gameplay styles.</li>
+                            </ul>
+                            <p class="footer-paragraph">
+                                Whether users prefer simple reels, bonus-heavy slots, Asian-themed games, or higher-volatility titles, NOVA9SG provides a broad slot selection for different player preferences.
+                            </p>
+                        </div>
+                        <div class="seo-card feature-card">
+                            <h3 class="h3-footer-title">Sports Betting Markets and Live Betting Options</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG also supports sports betting for users who follow local, regional, and international events. The sportsbook section is designed to provide accessible markets, live updates, and multiple bet types.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Pre-Match Betting:</b> Place bets before an event begins.</li>
+                                <li><b>Live Betting:</b> Explore in-play betting opportunities while matches are ongoing.</li>
+                                <li><b>Multiple Bet Types:</b> Singles, accumulators, totals, handicaps, and other market formats may be available.</li>
+                                <li><b>Live Scores and Statistics:</b> Follow match information to support more informed betting decisions.</li>
+                            </ul>
+                            <p class="footer-paragraph">
+                                Users can explore sports such as football, basketball, tennis, racing, esports, motorsport, rugby, and other major events through one convenient betting platform.
+                            </p>
+                        </div>
+                        <div class="seo-card feature-card">
+                            <h3 class="h3-footer-title">Convenient Deposits and Account Funding</h3>
+                            <p class="footer-paragraph">
+                                A smooth online casino experience depends on reliable payment support. NOVA9SG is structured to make account funding simple, secure, and convenient for eligible users.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Bank Transfer Options:</b> Selected local or regional banking methods such as Maribank, Trust Bank, DBS Bank, GXS Bank, and Maybank Singapore may be available depending on account eligibility.</li>
+                                <li><b>Digital Payment Methods:</b> Users may be able to access supported options such as PayNow, DBS PayLah!, Apple Pay, Visa, and Mastercard.</li>
+                                <li><b>Crypto-Friendly Funding:</b> Where available, selected digital assets such as BTC, ETH, and USDT may be supported for alternative payment access.</li>
+                                <li><b>Secure Transactions:</b> Platform security measures help protect payment activity and account information.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card feature-card">
+                            <h3 class="h3-footer-title">Mobile-Friendly Gaming with NOVA9SG</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG is designed for users who want convenient access to slots, live casino games, promotions, and sports betting features from mobile devices.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Optimised for Mobile:</b> The platform is built to work smoothly across supported Android and iOS devices.</li>
+                                <li><b>Easy Navigation:</b> Users can move between games, account features, promotions, and payment pages with fewer steps.</li>
+                                <li><b>Instant Play Access:</b> Players can log in and explore available games without complicated setup.</li>
+                                <li><b>Live Gaming on the Go:</b> Access live casino and live betting features from compatible mobile browsers.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card feature-card">
+                            <h3 class="h3-footer-title">Promotions, Rewards, and Loyalty Campaigns</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG features a range of promotional campaigns for new and returning users. These may include welcome rewards, daily bonuses, slot promotions, cashback-style offers, referral campaigns, deposit rewards, and VIP loyalty benefits.
+                            </p>
+                            <p class="footer-paragraph">
+                                Users should always review the latest promotion terms, wagering requirements, eligibility rules, expiry dates, and withdrawal conditions before joining any campaign.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="footer-box-sub">
+                    <h2 class="h2-footer-title section-title">Online Casino Games and Providers at NOVA9SG</h2>
+                    <p class="footer-paragraph section-intro">
+                        NOVA9SG offers a broad selection of online casino games designed for different playing styles. Users can explore slots, live dealer games, table games, sports betting, and other entertainment categories from a single platform.
+                    </p>
+                    <div class="card-grid card-grid-3">
+                        <div class="seo-card provider-card">
+                            <h3 class="h3-footer-title">Slot and Pokies Game Providers</h3>
+                            <p class="footer-paragraph">
+                                The slot section includes classic slots, video slots, jackpot-style games, and feature-based titles. NOVA9SG brings together a wide provider selection to support different themes, bonus mechanics, and gameplay formats.
+                            </p>
+                            <h4 class="h4-footer-title">Main Slot Providers</h4>
+                            <ul class="disc-list compact-list">
+                                <li>MegaH5</li><li>WF Gaming</li><li>Epic Win</li><li>SCR888</li><li>Meta Gaming</li>
+                                <li>Rich Gaming</li><li>EVO888H5</li><li>Vpower</li><li>Pragmatic Play</li><li>Mario Club</li>
+                                <li>Mega888</li><li>Joker</li><li>NextSpin</li><li>JILI</li><li>FA Chai</li>
+                                <li>Live22</li><li>CQ9 Gaming</li><li>Dragon Soft</li><li>Lucky365</li><li>LFC888</li>
+                                <li>ACE333</li><li>Vplus</li><li>iBex</li><li>XE88</li><li>UUslots</li>
+                                <li>Pegasus</li><li>Spade Gaming</li>
+                            </ul>
+                            <p class="footer-paragraph">
+                                This provider variety helps NOVA9SG serve both casual users who prefer simple gameplay and experienced players who enjoy advanced features, bonus mechanics, and different slot styles.
+                            </p>
+                        </div>
+                        <div class="seo-card provider-card">
+                            <h3 class="h3-footer-title">Live Casino Game Providers</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG's live casino section is designed for users who want a more interactive table gaming experience. Live games may include real-time dealer interaction, video streaming, table selection, and multiple betting options.
+                            </p>
+                            <h4 class="h4-footer-title">Featured Live Casino Providers</h4>
+                            <ul class="disc-list compact-list">
+                                <li>Sexy Baccarat</li><li>Big Gaming / BG Gaming</li><li>Pragmatic Play Live</li>
+                                <li>YEEBET</li><li>Evolution Gaming</li><li>Dream Gaming</li>
+                            </ul>
+                            <h4 class="h4-footer-title">Popular Live Casino Games</h4>
+                            <ul class="disc-list compact-list">
+                                <li>Live Baccarat</li><li>Live Blackjack</li><li>Live Roulette</li>
+                                <li>Live Dragon Tiger</li><li>Live Sic Bo</li><li>Game Show-Style Live Casino</li>
+                            </ul>
+                            <p class="footer-paragraph">
+                                These live casino options help create a more realistic gaming environment for users who prefer table games with real-time pacing and interaction.
+                            </p>
+                        </div>
+                        <div class="seo-card provider-card">
+                            <h3 class="h3-footer-title">Sports Betting and Esports Providers</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG also includes sports betting options for users who follow major competitions and live events. Depending on availability, users may access pre-match markets, in-play betting, and selected esports markets.
+                            </p>
+                            <h4 class="h4-footer-title">Sportsbook Providers</h4>
+                            <ul class="disc-list compact-list">
+                                <li>M8BET</li><li>WS Gaming</li>
+                            </ul>
+                            <h4 class="h4-footer-title">Popular Sports Markets</h4>
+                            <ul class="disc-list compact-list">
+                                <li>Football</li><li>Basketball</li><li>Tennis</li><li>Racing</li>
+                                <li>Motorsport</li><li>Rugby</li><li>Esports</li><li>Live Betting Markets</li>
+                            </ul>
+                            <p class="footer-paragraph">
+                                With multiple sports and market types, NOVA9SG gives users a convenient way to follow events and explore betting options from one account.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="footer-box-sub">
+                    <h2 class="h2-footer-title section-title">NOVA9SG Online Casino Promotions in Singapore</h2>
+                    <div class="card-grid card-grid-2">
+                        <div class="seo-card promo-card">
+                            <h3 class="h3-footer-title">Welcome and New Member Bonuses</h3>
+                            <p class="footer-paragraph">
+                                New users at NOVA9SG can explore a range of welcome promotions designed to make the first gaming experience more rewarding. These offers may include sign-up rewards, deposit cashback, and slot welcome bonuses for eligible accounts.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Sign Up Bonus:</b> New members may receive a welcome reward of up to SGD199 after completing the required registration steps.</li>
+                                <li><b>Slot Welcome Bonus:</b> Eligible slot players can enjoy a welcome bonus of up to 90% on selected slot activity.</li>
+                                <li><b>New Member Deposit Cashback:</b> New users may access deposit cashback promotions such as 33%, 55%, or 111%, depending on the campaign terms.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card promo-card">
+                            <h3 class="h3-footer-title">Daily Free Rewards and App Bonuses</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG features daily reward campaigns for users who stay active on the platform. These promotions are designed around regular access, app participation, and simple daily claim opportunities.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Daily Free Bonus:</b> Eligible users may claim a daily free reward of up to SGD99.</li>
+                                <li><b>Daily Free App Bonus:</b> Users who access NOVA9SG through the app or supported mobile platform may receive a daily app-linked reward of up to SGD59.</li>
+                                <li><b>Daily Check-In Rewards:</b> Selected users may enjoy recurring check-in rewards based on platform activity and campaign eligibility.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card promo-card">
+                            <h3 class="h3-footer-title">Social Mission and Community Bonuses</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG also offers community-style promotions for users who participate in selected social missions, sharing tasks, and platform engagement campaigns.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Facebook Mission Extra Free:</b> Complete selected Facebook mission tasks to receive extra free rewards of up to SGD69.</li>
+                                <li><b>Lucky Social Bonus:</b> Users may claim a social bonus of up to SGD19 through eligible lucky social campaigns.</li>
+                                <li><b>Social Task Rewards:</b> Additional mission-based rewards may be available through approved community or social participation activities.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card promo-card">
+                            <h3 class="h3-footer-title">Referral, Downline, and Commission Rewards</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG includes referral and downline reward programmes for users who invite friends or build eligible network activity. These campaigns are designed for players who want extra reward opportunities beyond regular casino promotions.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Top Referral Cash Championship:</b> Compete in referral-based campaigns and unlock cash rewards based on eligible referral performance.</li>
+                                <li><b>Downline Bonus:</b> Users may receive downline rewards of up to SGD288, depending on campaign rules and qualifying activity.</li>
+                                <li><b>Extra Income Commission:</b> Eligible participants may earn commission rewards of up to 19% through selected referral or agent-style programmes.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card promo-card">
+                            <h3 class="h3-footer-title">Rebate and Rescue Bonus Campaigns</h3>
+                            <p class="footer-paragraph">
+                                Active users can explore rebate and rescue-style promotions designed to provide additional value across selected casino or betting activity. These offers may vary by game category, account level, and campaign period.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Daily 100% Rescue Bonus:</b> Eligible users may receive a rescue bonus of up to 100% under selected campaign conditions.</li>
+                                <li><b>Weekly Rebate:</b> Returning users may enjoy weekly rebate rewards of up to 3%.</li>
+                                <li><b>Daily Rebate:</b> Selected users may receive daily rebate rewards of up to 9%.</li>
+                                <li><b>29% Daily Extra Rebate:</b> Additional daily rebate campaigns may offer up to 29% extra value for qualifying activity.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card promo-card">
+                            <h3 class="h3-footer-title">Deposit and High-Value Reward Campaigns</h3>
+                            <p class="footer-paragraph">
+                                For users who prefer deposit-linked promotions, NOVA9SG offers selected high-value reward campaigns connected to daily deposit activity, bonus participation, and account eligibility.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Big Boss Daily Deposit Free:</b> Eligible users may receive daily deposit-linked rewards of up to SGD999.</li>
+                                <li><b>Deposit Cashback Promotions:</b> New member deposit cashback may include selected rates such as 33%, 55%, and 111%.</li>
+                                <li><b>Progressive Deposit Rewards:</b> Additional rewards may be available for users who meet specific deposit milestones or campaign requirements.</li>
+                            </ul>
+                            <p class="footer-paragraph">
+                                All NOVA9SG promotions are subject to the latest terms and conditions, including eligibility rules, wagering requirements, minimum deposit amounts, withdrawal limits, and campaign expiry dates.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="footer-box-sub">
+                    <h2 class="h2-footer-title section-title">Payment Methods at NOVA9SG Online Casino</h2>
+                    <div class="card-grid card-grid-3">
+                        <div class="seo-card payment-card">
+                            <h3 class="h3-footer-title">Bank Transfer and Local Payment Options</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG is designed to support convenient account funding through selected banking and payment options where available.
+                            </p>
+                            <ul class="disc-list compact-list">
+                                <li>Bank Transfer</li><li>FAST Transfer</li><li>PayNow</li><li>DBS PayLah!</li>
+                                <li>Maribank</li><li>Trust Bank</li><li>DBS Bank</li><li>GXS Bank</li><li>Maybank Singapore</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card payment-card">
+                            <h3 class="h3-footer-title">Digital Wallet and Card Options</h3>
+                            <p class="footer-paragraph">
+                                Depending on platform availability, users may be able to access selected digital wallet, card-based, or payment gateway methods.
+                            </p>
+                            <ul class="disc-list compact-list">
+                                <li>Apple Pay</li><li>Visa</li><li>Mastercard</li>
+                                <li>E-Wallet Options</li><li>Payment Gateway Transfers</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card payment-card">
+                            <h3 class="h3-footer-title">Crypto and Alternative Payment Support</h3>
+                            <p class="footer-paragraph">
+                                For users who prefer alternative funding methods, NOVA9SG may support selected digital asset payment options where permitted.
+                            </p>
+                            <ul class="disc-list compact-list">
+                                <li>USDT</li><li>Bitcoin</li><li>Ethereum</li><li>TRON</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-grid card-grid-1 payment-bottom-grid">
+                        <div class="seo-card payment-card wide-card">
+                            <h3 class="h3-footer-title">Withdrawal Convenience</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG aims to provide a smoother withdrawal process through clear transaction steps, secure account handling, and supported payment channels.
+                            </p>
+                            <ul class="disc-list">
+                                <li>Secure withdrawal request process.</li>
+                                <li>Account verification steps for user protection.</li>
+                                <li>Supported withdrawal methods based on account eligibility.</li>
+                                <li>Clear review of withdrawal limits, processing times, and bonus conditions.</li>
+                            </ul>
+                            <p class="footer-paragraph">
+                                Users should check the latest payment rules, minimum withdrawal amounts, processing times, and verification requirements before submitting a withdrawal request.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="footer-box-sub">
+                    <h2 class="h2-footer-title section-title">Responsible Gaming at NOVA9SG</h2>
+                    <div class="card-grid card-grid-2">
+                        <div class="seo-card info-card">
+                            <h3 class="h3-footer-title">Setting Limits for Safer Play</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG encourages users to approach online casino games and sports betting responsibly. Setting clear limits can help users manage activity and reduce the risk of excessive gambling.
+                            </p>
+                            <ul class="disc-list">
+                                <li><b>Deposit Limits:</b> Set daily, weekly, or monthly deposit limits based on a planned budget.</li>
+                                <li><b>Wagering Limits:</b> Use betting limits to avoid spending beyond affordable levels.</li>
+                                <li><b>Time Management:</b> Take regular breaks and avoid extended gaming sessions.</li>
+                                <li><b>Budget Awareness:</b> Only use funds that are set aside for entertainment.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card info-card">
+                            <h3 class="h3-footer-title">Recognising Problem Gambling Signs</h3>
+                            <p class="footer-paragraph">
+                                Users should stay aware of behaviours that may suggest gambling is becoming difficult to control.
+                            </p>
+                            <ul class="disc-list">
+                                <li>Chasing losses after unsuccessful bets or game sessions.</li>
+                                <li>Spending more time or money than originally planned.</li>
+                                <li>Borrowing money or using essential funds for gambling.</li>
+                                <li>Feeling stress, anxiety, or pressure linked to gambling activity.</li>
+                                <li>Finding it difficult to stop despite negative consequences.</li>
+                            </ul>
+                        </div>
+                        <div class="seo-card info-card full-span">
+                            <h3 class="h3-footer-title">Support and Assistance</h3>
+                            <p class="footer-paragraph">
+                                Responsible gaming should always come first. Users who feel their gambling activity is becoming difficult to manage should pause play and seek professional support from recognised gambling help organisations.
+                            </p>
+                            <p class="footer-paragraph">
+                                NOVA9SG encourages safer play, age-appropriate access, and responsible use of all casino and betting features. Online gaming should be treated as entertainment, not as a way to make income or solve financial problems.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="footer-box-sub">
+                    <h2 class="h2-footer-title section-title">NOVA9SG FAQs</h2>
+                    <div class="faq-list">
+                        <div class="seo-card faq-card">
+                            <h3 class="h3-footer-title">What is NOVA9SG?</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG is an online gaming platform that may feature casino-style games, slots, live casino tables, sports betting markets, promotions, and mobile-friendly account access.
+                            </p>
+                        </div>
+                        <div class="seo-card faq-card">
+                            <h3 class="h3-footer-title">What online casino games are available at NOVA9SG?</h3>
+                            <p class="footer-paragraph">
+                                Users may find slots, video slots, live blackjack, live roulette, live baccarat, jackpot-style games, table games, and selected sports betting options depending on platform availability.
+                            </p>
+                        </div>
+                        <div class="seo-card faq-card">
+                            <h3 class="h3-footer-title">Which game providers are available at NOVA9SG?</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG may feature slot providers such as MegaH5, WF Gaming, Epic Win, Meta Gaming, SCR888H5, Mega888, Live22, Joker, NextSpin, and more, along with live casino providers such as Sexy Baccarat, Dream Gaming, Evolution Gaming, YEEBET, WM, and Pragmatic Play Live.
+                            </p>
+                        </div>
+                        <div class="seo-card faq-card">
+                            <h3 class="h3-footer-title">Can I play NOVA9SG on mobile?</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG is designed to be mobile-friendly, allowing users to access games, promotions, account pages, and payment features from supported mobile browsers or devices.
+                            </p>
+                        </div>
+                        <div class="seo-card faq-card">
+                            <h3 class="h3-footer-title">Does NOVA9SG offer casino promotions?</h3>
+                            <p class="footer-paragraph">
+                                NOVA9SG may offer welcome bonuses, slot promotions, daily rewards, referral campaigns, cashback-style offers, and VIP loyalty benefits. Users should always read the latest terms and conditions before claiming any bonus.
+                            </p>
+                        </div>
+                        <div class="seo-card faq-card">
+                            <h3 class="h3-footer-title">How do I register at NOVA9SG?</h3>
+                            <p class="footer-paragraph">
+                                Click the <a href="https://nova9sg1.me/register" class="text-link">Register</a> option, complete the required account details, verify the account where necessary, and follow the platform instructions to access available features.
+                            </p>
+                        </div>
+                        <div class="seo-card faq-card">
+                            <h3 class="h3-footer-title">What payment methods does NOVA9SG support?</h3>
+                            <p class="footer-paragraph">
+                                Depending on availability and account eligibility, NOVA9SG may support payment methods such as bank transfer, FAST transfer, PayNow, DBS PayLah!, Visa, Mastercard, selected e-wallet options, and supported digital assets.
+                            </p>
+                        </div>
+                        <div class="seo-card faq-card">
+                            <h3 class="h3-footer-title">Is online casino gaming regulated in Singapore?</h3>
+                            <p class="footer-paragraph">
+                                Gambling and remote gambling activities in Singapore are regulated by local authorities. Users should check whether a platform is legally permitted in their location and should only access gaming services where doing so is lawful.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div id="promoModal" class="promo-modal is-hidden" role="dialog" aria-modal="true" aria-labelledby="promoModalTitle">
+    <div class="promo-modal-card">
+        <button id="promoModalClose" type="button" aria-label="{{common.closePromo}}" class="promo-modal-close">
+            <i data-lucide="x" aria-hidden="true" class="h-5 w-5"></i>
+        </button>
+        <div class="promo-modal-media">
+            <video class="promotion-video" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.nova9sg.net/img/promotion.gif.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="promo-modal-caption">
+            <p id="promoModalTitle" class="text-sm font-semibold text-amber-100 sm:text-base">{{promoModal.title}}</p>
+            <p class="mt-1 text-xs text-amber-100/85 sm:text-sm">{{promoModal.description}}</p>
+            <a href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-3 inline-flex rounded-full px-5 py-2 text-xs font-semibold sm:text-sm">
+                {{promoModal.cta}}
+            </a>
+        </div>
+    </div>
+</div>
+
+<button id="backToTop" type="button" aria-label="{{common.backToTop}}" class="back-to-top fixed bottom-24 right-4 z-40 pointer-events-none translate-y-3 rounded-full px-3 py-2 opacity-0 shadow-md transition-all duration-200">
+    <i data-lucide="chevron-up" aria-hidden="true" class="h-4 w-4"></i>
+</button>
+
+<nav id="mobileNav" class="mobile-nav fixed bottom-0 left-0 right-0 z-40 border-t border-amber-300/45 bg-black/90 backdrop-blur-md">
+    <div class="flex items-center justify-around">
+        <a href="#home" class="flex flex-col items-center gap-0.5 px-3 py-2 text-xs font-semibold text-amber-100">
+            <i data-lucide="home" aria-hidden="true" class="h-5 w-5"></i>
+            {{nav.home}}
+        </a>
+        <a href="#commission" class="flex flex-col items-center gap-0.5 px-3 py-2 text-xs font-semibold text-amber-100">
+            <i data-lucide="calculator" aria-hidden="true" class="h-5 w-5"></i>
+            {{nav.commission}}
+        </a>
+        <a href="#about" class="flex flex-col items-center gap-0.5 px-3 py-2 text-xs font-semibold text-amber-100">
+            <i data-lucide="info" aria-hidden="true" class="h-5 w-5"></i>
+            {{nav.about}}
+        </a>
+    </div>
+</nav>
+
+<footer class="w-full border-t border-amber-300/45 bg-black/70 text-amber-100 backdrop-blur">
+    <div class="mx-auto w-[min(1100px,92vw)] px-3 py-8 sm:px-4">
+        <div class="grid gap-6 md:grid-cols-2 md:items-start">
+            <section aria-label="{{footer.paymentSectionAria}}">
+                <h2 class="text-sm font-bold tracking-wide text-amber-100">{{footer.paymentTitle}}</h2>
+                <div class="mt-3 flex flex-col items-start gap-3">
+                    <img class="block h-8 w-auto max-w-full sm:h-10" src="https://cdn.nova9sg.net/img/supported-banks.png" alt="{{footer.paymentAlt}}" loading="lazy" decoding="async">
+                    <img class="block h-8 w-auto max-w-full sm:h-10" src="https://cdn.nova9sg.net/img/supported-wallet.png" alt="{{footer.paymentAlt}}" loading="lazy" decoding="async">
+                </div>
+                <h2 class="mt-6 text-sm font-bold tracking-wide text-amber-100">{{footer.certificateTitle}}</h2>
+                <div class="mt-3 flex items-start">
+                    <img class="block h-8 w-auto max-w-full sm:h-10" src="https://cdn.nova9sg.net/img/cert.png" alt="{{footer.certificateAlt}}" loading="lazy" decoding="async">
+                </div>
+            </section>
+            <section aria-label="{{footer.licenseSectionAria}}">
+                <h2 class="text-sm font-bold tracking-wide text-amber-100">{{footer.licenseTitle}}</h2>
+                <div class="mt-3 flex items-start">
+                    <img class="block h-8 w-auto max-w-full sm:h-10" src="https://cdn.nova9sg.net/img/license.png" alt="{{footer.licenseAlt}}" loading="lazy" decoding="async">
+                </div>
+                <p class="mt-3 text-xs leading-5 text-amber-100/75">{{footer.licenseBody}}</p>
+                <p class="mt-3 text-xs leading-5 text-amber-100/75">{{footer.licenseFootnote}}</p>
+            </section>
+        </div>
+        <div class="mt-8 flex flex-col gap-2 border-t border-amber-300/45 pt-4 text-xs text-amber-100/75 sm:flex-row sm:items-center sm:justify-between">
+            <span>{{footer.copyright}}</span>
+            <span>{{footer.responsiblePlay}}</span>
+        </div>
+    </div>
+</footer>
+
+<div id="contactFloat" class="contact-float">
+    <button id="contactToggle" type="button" class="contact-float-toggle" aria-label="{{contact.label}}">
+        <i data-lucide="headset" aria-hidden="true" class="h-6 w-6"></i>
+        <i data-lucide="x" aria-hidden="true" class="contact-float-toggle-close h-5 w-5"></i>
+    </button>
+    <div id="contactPanel" class="contact-float-panel">
+        <a id="contactWhatsapp" href="#" target="_blank" rel="noopener noreferrer"
+            class="contact-float-item" aria-label="{{contact.whatsapp}}">
+            <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            </svg>
+        </a>
+        <a id="contactTelegram" href="#" target="_blank" rel="noopener noreferrer"
+            class="contact-float-item" aria-label="{{contact.telegram}}">
+            <i data-lucide="send" aria-hidden="true" class="h-5 w-5"></i>
+        </a>
+    </div>
+</div>
