@@ -67,19 +67,11 @@
     .header-auth {
         order: 2;
     }
-
-    .mobile-nav {
-        display: grid;
-    }
-
-    .site-footer {
-        padding-bottom: 84px;
-    }
 }
 
 @media (max-width: 600px) {
     .section {
-        padding: 24px 0;
+        padding: 12px 0;
     }
 
     .calc-panel {
@@ -98,13 +90,5 @@
         font-size: 2rem;
         right: 2px;
         top: -4px;
-    }
-
-    #carouselPrev {
-        left: 4px;
-    }
-
-    #carouselNext {
-        right: 4px;
     }
 }

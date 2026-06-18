@@ -58,9 +58,16 @@
 </header>
 
 <main class="relative z-10">
-    <div class="mainContent mt-16">
-        <section id="home" data-reveal class="hero section relative flex flex-col items-center gap-6 transition-all duration-500 ease-out will-change-transform opacity-100 translate-y-0">
+    <div class="mainContent mt-12">
+        <section id="home" data-reveal style="padding-top: 3px" class="hero section relative flex flex-col items-center gap-3 transition-all duration-500 ease-out will-change-transform opacity-100 translate-y-0">
             <canvas id="starfield" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full opacity-20"></canvas>
+            <div class="container section-shell mx-auto w-[min(1100px,92vw)]">
+                <div id="bannerCarousel" class="banner-carousel">
+                    <div class="banner-carousel-viewport">
+                        <div id="bannerTrack" class="banner-carousel-track"></div>
+                    </div>
+                </div>
+            </div>
             <div class="container hero-content relative mx-auto w-[min(1100px,92vw)] text-center">
                 <div class="section-forehead" aria-hidden="true">
                     <span class="section-forehead-dot"></span>
@@ -68,7 +75,7 @@
                     <span class="section-forehead-dot"></span>
                 </div>
                 <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">{{hero.title}}</h1>
-                <h1 class="mt-4 inline-block pb-[0.12em] text-4xl font-bold leading-normal tracking-tight sm:text-5xl lg:text-6xl gold-gradient">{{hero.subtitle}}</h1>
+                <h1 class="mt-4 inline-block pb-[0.12em] text-4xl font-bold leading-normal tracking-tight sm:text-5xl lg:text-6xl" style="color: var(--gold-deep, #967022); background-image: linear-gradient(135deg, #c9a44c 0%, var(--gold-deep, #967022) 60%, #efd9a4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">{{hero.subtitle}}</h1>
                 <p class="mx-auto mt-4 max-w-2xl text-base sm:text-lg">{{hero.description}}</p>
                 <div id="heroStats" class="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-2">
                     <article class="stat-card rounded-2xl p-5 backdrop-blur-sm">
@@ -84,24 +91,7 @@
                     {{hero.cta}}
                 </a>
             </div>
-            <div class="container section-shell mx-auto w-[min(1100px,92vw)]">
-                <div class="section-forehead" aria-hidden="true">
-                    <span class="section-forehead-dot"></span>
-                    <span class="section-forehead-text">{{hero.campaignEyebrow}}</span>
-                    <span class="section-forehead-dot"></span>
-                </div>
-                <div id="bannerCarousel" class="carousel relative mt-10">
-                    <button id="carouselPrev" type="button" class="carousel-btn left-2" aria-label="Previous">
-                        <i data-lucide="chevron-left" aria-hidden="true" class="h-5 w-5"></i>
-                    </button>
-                    <div data-carousel-viewport class="carousel-viewport overflow-hidden rounded-2xl [scrollbar-width:none]">
-                        <div id="bannerTrack" class="carousel-track flex w-max gap-4 py-2 will-change-transform"></div>
-                    </div>
-                    <button id="carouselNext" type="button" class="carousel-btn right-2" aria-label="Next">
-                        <i data-lucide="chevron-right" aria-hidden="true" class="h-5 w-5"></i>
-                    </button>
-                </div>
-            </div>
+
         </section>
 
         <section id="live-transaction" data-reveal class="section section-soft flex items-start opacity-0 translate-y-6 transition-all duration-500 ease-out will-change-transform">
@@ -692,26 +682,10 @@
     </div>
 </div>
 
-<button id="backToTop" type="button" aria-label="{{common.backToTop}}" class="back-to-top fixed bottom-24 right-4 z-40 pointer-events-none translate-y-3 rounded-full px-3 py-2 opacity-0 shadow-md transition-all duration-200">
-    <i data-lucide="chevron-up" aria-hidden="true" class="h-4 w-4"></i>
+<button id="backToTop" type="button" aria-label="{{common.backToTop}}" class="back-to-top fixed bottom-24 right-4 z-40 rounded-full px-3 py-2 shadow-md transition-all duration-200 opacity-100 translate-y-0 pointer-events-auto">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-up" aria-hidden="true" class="lucide lucide-chevron-up h-4 w-4"><path d="m18 15-6-6-6 6"></path></svg>
 </button>
 
-<nav id="mobileNav" class="mobile-nav fixed bottom-0 left-0 right-0 z-40 border-t border-amber-300/45 bg-black/90 backdrop-blur-md">
-    <div class="flex items-center justify-around">
-        <a href="#home" class="flex flex-col items-center gap-0.5 px-3 py-2 text-xs font-semibold text-amber-100">
-            <i data-lucide="home" aria-hidden="true" class="h-5 w-5"></i>
-            {{nav.home}}
-        </a>
-        <a href="#commission" class="flex flex-col items-center gap-0.5 px-3 py-2 text-xs font-semibold text-amber-100">
-            <i data-lucide="calculator" aria-hidden="true" class="h-5 w-5"></i>
-            {{nav.commission}}
-        </a>
-        <a href="#about" class="flex flex-col items-center gap-0.5 px-3 py-2 text-xs font-semibold text-amber-100">
-            <i data-lucide="info" aria-hidden="true" class="h-5 w-5"></i>
-            {{nav.about}}
-        </a>
-    </div>
-</nav>
 
 <footer class="w-full border-t border-amber-300/45 bg-black/70 text-amber-100 backdrop-blur">
     <div class="mx-auto w-[min(1100px,92vw)] px-3 py-8 sm:px-4">

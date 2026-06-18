@@ -1,101 +1,50 @@
 import { qs } from '../utils/dom.js';
 
-// 横幅跑马灯：双份内容无缝滚动，按钮可手动微调。
 export function initBannerCarousel() {
     const track = qs('#bannerTrack');
-    const viewport = qs('[data-carousel-viewport]');
-    const prevButton = qs('#carouselPrev');
-    const nextButton = qs('#carouselNext');
-    if (!track || !viewport) return;
+    if (!track) return;
 
-    const baseItems = Array.from(track.children);
-    if (baseItems.length === 0) return;
+    const items = () => Array.from(track.children);
+    if (items().length === 0) return;
 
-    // 复制一份横幅实现“到末尾后无感回绕”。
-    baseItems.forEach((item) => {
-        const clone = item.cloneNode(true);
-        clone.setAttribute('aria-hidden', 'true');
-        track.appendChild(clone);
-    });
+    const PAUSE = 60 * 1000;
+    const SPEED = 400;
+    let index = 0;
+    let timer = null;
+    let locked = false;
 
-    let previousTimestamp = performance.now();
-    const speedPxPerSecond = 36;
-    const manualStep = 300;
-    let isPaused = false;
-    let frameId = 0;
-    let loopWidth = 0;
-    let offsetX = 0;
-
-    function refreshLoopWidth() {
-        loopWidth = track.scrollWidth / 2;
+    function go(n) {
+        if (locked || items().length <= 1) return;
+        locked = true;
+        index = ((n % items().length) + items().length) % items().length;
+        track.style.transition = `transform ${SPEED}ms ease`;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        resetTimer();
+        setTimeout(() => { locked = false; }, SPEED);
     }
 
-    function normalizeOffset() {
-        if (loopWidth <= 0) return;
-        while (offsetX >= loopWidth) offsetX -= loopWidth;
-        while (offsetX < 0) offsetX += loopWidth;
+    function next() { go(index + 1); }
+
+    function resetTimer() {
+        clearTimeout(timer);
+        timer = setTimeout(next, PAUSE);
     }
 
-    function renderOffset() {
-        track.style.transform = `translate3d(${-offsetX}px, 0, 0)`;
-    }
-
-    function tick(now) {
-        const deltaSeconds = Math.min((now - previousTimestamp) / 1000, 0.5);
-        previousTimestamp = now;
-        if (!isPaused && loopWidth > 0) {
-            offsetX += speedPxPerSecond * deltaSeconds;
-            normalizeOffset();
-            renderOffset();
+    function init() {
+        const imgs = items().filter(el => el.tagName === 'IMG' && !el.complete);
+        const onReady = () => {
+            track.style.transform = 'translateX(0)';
+            resetTimer();
+        };
+        if (imgs.length > 0) {
+            Promise.all(imgs.map(img => new Promise(r => {
+                img.addEventListener('load', r, { once: true });
+                img.addEventListener('error', r, { once: true });
+            }))).then(onReady);
+        } else {
+            onReady();
         }
-        frameId = window.requestAnimationFrame(tick);
     }
 
-    function manualMove(distance) {
-        if (loopWidth <= 0) return;
-        offsetX += distance;
-        normalizeOffset();
-        renderOffset();
-    }
-
-    if (prevButton) prevButton.addEventListener('click', () => manualMove(-manualStep));
-    if (nextButton) nextButton.addEventListener('click', () => manualMove(manualStep));
-
-    window.addEventListener('resize', () => {
-        refreshLoopWidth();
-        normalizeOffset();
-        renderOffset();
-    });
-
-    function ensureLoopWidth() {
-        track.querySelectorAll('img').forEach((image) => {
-            if (image.complete) {
-                refreshLoopWidth();
-            } else {
-                image.addEventListener('load', () => {
-                    refreshLoopWidth();
-                    normalizeOffset();
-                    renderOffset();
-                }, { once: true });
-            }
-        });
-        refreshLoopWidth();
-    }
-
-    function startLoop() {
-        ensureLoopWidth();
-        if (loopWidth <= 0) {
-            frameId = window.requestAnimationFrame(startLoop);
-            return;
-        }
-        normalizeOffset();
-        renderOffset();
-        previousTimestamp = performance.now();
-        frameId = window.requestAnimationFrame(tick);
-    }
-
-    startLoop();
-    window.addEventListener('beforeunload', () => {
-        if (frameId) window.cancelAnimationFrame(frameId);
-    });
+    init();
 }

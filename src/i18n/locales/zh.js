@@ -27,7 +27,7 @@ export default {
         register: '注册'
     },
     hero: {
-        eyebrow: '新加坡可信合作平台',
+        eyebrow: '最好的线上赌场',
         title: '聪明下注，赢得更多。',
         subtitle: '可信系统，放心畅玩。',
         description: 'NOVA9 专为新加坡玩家打造，兼顾便捷、速度与可信赖的娱乐体验。平台安全稳定，提款快速可靠。',
