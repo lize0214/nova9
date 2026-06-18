@@ -1,4 +1,4 @@
-﻿import { qs } from '../utils/dom.js';
+import { qs } from '../utils/dom.js';
 
 // 回到顶部模块：滚动一定距离后显示按钮。
 export function initBackToTop() {
@@ -6,7 +6,7 @@ export function initBackToTop() {
 	if (!button) return;
 
 	window.addEventListener('scroll', () => {
-		const shouldShow = window.scrollY > 480;
+		const shouldShow = window.scrollY > 0;
 		button.classList.toggle('opacity-100', shouldShow);
 		button.classList.toggle('translate-y-0', shouldShow);
 		button.classList.toggle('pointer-events-auto', shouldShow);

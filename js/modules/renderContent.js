@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿import { APP_CONFIG } from '../config.js';
+﻿﻿﻿﻿﻿﻿import { APP_CONFIG } from '../config.js';
 import i18n from '../../src/i18n/index.js';
 import { qs } from '../utils/dom.js';
 
@@ -57,7 +57,7 @@ function renderBanners() {
         image.alt = i18n.t('media.bannerAlt');
         image.loading = 'lazy';
         image.decoding = 'async';
-        image.className = 'w-[86vw] max-w-[520px] shrink-0 rounded-2xl border border-amber-200/90 shadow-[0_14px_38px_rgba(146,107,30,0.14)]';
+        image.className = 'banner-carousel-img';
         fragment.appendChild(image);
     });
 

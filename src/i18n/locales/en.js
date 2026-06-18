@@ -27,7 +27,7 @@ export default {
         register: 'Register'
     },
     hero: {
-        eyebrow: 'Singapore Trusted Partnership',
+        eyebrow: 'The best online casino',
         title: 'Bet Smart. Win More.',
         subtitle: 'Trusted system. Play with confidence.',
         description: 'NOVA9 is designed for players in Singapore who value convenience, speed, and a trusted gaming environment. Secure platform. Fast and reliable withdrawals.',

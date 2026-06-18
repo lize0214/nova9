@@ -48,7 +48,6 @@ body.bg-loaded::after {
 header,
 main,
 footer,
-.mobile-nav,
 .back-to-top {
     position: relative;
     z-index: 1;
@@ -110,7 +109,7 @@ h1 {
 }
 
 .section {
-    padding: 50px 0;
+    padding: 10px 0;
 }
 
 .section-soft {
@@ -290,23 +289,4 @@ body.download-bar-visible .site-header {
 
 .footer-logo {
     width: 150px;
-}
-
-.mobile-nav {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    display: none;
-    grid-template-columns: repeat(3, 1fr);
-    background: rgba(255, 250, 240, 0.95);
-    border-top: 1px solid var(--gold-border);
-}
-
-.mobile-nav a {
-    text-align: center;
-    padding: 10px 4px;
-    color: var(--text-main);
-    font-size: 0.82rem;
 }
