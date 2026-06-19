@@ -4,14 +4,19 @@ export function initBannerCarousel() {
     const track = qs('#bannerTrack');
     if (!track) return;
 
+    const viewport = track.parentElement;
     const items = () => Array.from(track.children);
     if (items().length === 0) return;
 
-    const PAUSE = 60 * 1000;
+    const PAUSE = 40 * 1000;
     const SPEED = 400;
+    const SWIPE_THRESHOLD = 50;
     let index = 0;
     let timer = null;
     let locked = false;
+    let startX = 0;
+    let startY = 0;
+    let dragging = false;
 
     function go(n) {
         if (locked || items().length <= 1) return;
@@ -24,11 +29,40 @@ export function initBannerCarousel() {
     }
 
     function next() { go(index + 1); }
+    function prev() { go(index - 1); }
 
     function resetTimer() {
         clearTimeout(timer);
         timer = setTimeout(next, PAUSE);
     }
+
+    function startDrag(x, y) {
+        startX = x;
+        startY = y;
+        dragging = true;
+    }
+
+    function endDrag(x, y) {
+        if (!dragging) return;
+        dragging = false;
+        const dx = x - startX;
+        const dy = y - startY;
+        if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+        if (dx > 0) prev();
+        else next();
+    }
+
+    function onTouchStart(e) { startDrag(e.touches[0].clientX, e.touches[0].clientY); }
+    function onTouchEnd(e) { endDrag(e.changedTouches[0].clientX, e.changedTouches[0].clientY); }
+
+    function onMouseDown(e) {
+        e.preventDefault();
+        startDrag(e.clientX, e.clientY);
+    }
+
+    function onMouseUp(e) { endDrag(e.clientX, e.clientY); }
+
+    function onMouseLeave() { dragging = false; }
 
     function init() {
         const imgs = items().filter(el => el.tagName === 'IMG' && !el.complete);
@@ -45,6 +79,12 @@ export function initBannerCarousel() {
             onReady();
         }
     }
+
+    viewport.addEventListener('touchstart', onTouchStart, { passive: true });
+    viewport.addEventListener('touchend', onTouchEnd, { passive: true });
+    viewport.addEventListener('mousedown', onMouseDown);
+    viewport.addEventListener('mouseup', onMouseUp);
+    viewport.addEventListener('mouseleave', onMouseLeave);
 
     init();
 }
