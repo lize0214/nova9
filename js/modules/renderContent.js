@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿import { APP_CONFIG } from '../config.js';
+﻿﻿﻿﻿﻿﻿﻿﻿import { APP_CONFIG } from '../config.js';
 import i18n from '../../src/i18n/index.js';
 import { qs } from '../utils/dom.js';
 
