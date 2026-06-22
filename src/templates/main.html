@@ -58,6 +58,15 @@
 </header>
 
 <main class="relative z-10">
+    <!-- 背景增強特效容器 -->
+    <div class="bg-glow-layers" aria-hidden="true">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+    </div>
+    <div class="bg-geometric-lines" aria-hidden="true"></div>
+    <div id="shootingStars" class="shooting-stars-container" aria-hidden="true"></div>
+
     <div class="mainContent mt-12">
         <section id="home" data-reveal style="padding-top: 0" class="hero section relative flex flex-col items-center gap-3 transition-all duration-500 ease-out will-change-transform opacity-100 translate-y-0">
             <canvas id="starfield" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full opacity-20"></canvas>
@@ -73,17 +82,101 @@
                 <h1 class="mt-2 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">{{hero.title}}</h1>
                 <h1 class="mt-2 inline-block pb-[0.12em] text-lg font-semibold leading-normal tracking-wide sm:text-xl lg:text-2xl" style="color: var(--gold-deep, #967022); background-image: linear-gradient(135deg, #c9a44c 0%, var(--gold-deep, #967022) 60%, #efd9a4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">{{hero.subtitle}}</h1>
                 <p class="mx-auto mt-4 max-w-2xl text-base sm:text-lg">{{hero.description}}</p>
-                <div id="heroStats" class="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-2">
-                    <article class="stat-card rounded-2xl p-5 backdrop-blur-sm">
-                        <h2 data-counter data-target="40000" data-suffix="+" class="text-4xl font-semibold leading-none">{{hero.players}}</h2>
-                        <p class="mt-2 text-sm">{{hero.players}}</p>
-                    </article>
-                    <article class="stat-card rounded-2xl p-5 backdrop-blur-sm">
-                        <h2 data-counter data-target="11" data-suffix="m+" class="text-4xl font-semibold leading-none">{{hero.paidOut}}</h2>
-                        <p class="mt-2 text-sm">{{hero.paidOut}}</p>
-                    </article>
+                
+                <!-- Partnership Logo -->
+                <div class="mt-8 flex justify-center">
+                    <img src="https://cdn.nova9sg.net/img/partnership-logo.png" alt="Partnership Logo" class="h-10 w-auto sm:h-12">
                 </div>
-                <a id="ctaJoin" href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5">
+
+                <!-- Partnership Section Replicated from Design (Scaled down 30%) -->
+                <div id="partnershipSection" class="relative mx-auto mt-8 max-w-2xl overflow-hidden rounded-[1.75rem] border border-[#be9431]/30 bg-black/40 p-6 shadow-[0_0_40px_rgba(190,148,49,0.1)] backdrop-blur-md">
+                    <!-- Background Enhancements -->
+                    <div class="partnership-bg-elements" aria-hidden="true">
+                        <div class="partnership-pattern"></div>
+                        <div class="light-sweep"></div>
+                        
+                        <!-- 3D Golden Globe Container -->
+                        <div id="partnershipGlobe3d" class="partnership-globe-3d"></div>
+
+                        <div class="mini-orb" style="top: 15%; left: 10%; --duration: 12s; --move-x: 30px; --move-y: 20px;"></div>
+                        <div class="mini-orb" style="top: 70%; left: 85%; --duration: 15s; --move-x: -40px; --move-y: -30px;"></div>
+                        <div class="mini-orb" style="top: 40%; left: 50%; --duration: 10s; --move-x: 20px; --move-y: 30px;"></div>
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col items-center">
+                        <!-- Top Icon -->
+                        <div class="relative mb-4">
+                            <div class="absolute inset-0 animate-pulse rounded-full bg-[#be9431]/20 blur-lg"></div>
+                            <div class="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#be9431] bg-black shadow-[0_0_15px_rgba(190,148,49,0.4)]">
+                                <i data-lucide="handshake" class="h-7 w-7 text-[#be9431]"></i>
+                            </div>
+                        </div>
+
+                        <span class="text-[10px] font-bold tracking-[0.3em] text-[#be9431]">{{partnership.eyebrow}}</span>
+                        <div class="my-6 flex w-full items-center justify-center gap-3">
+                            <div class="h-[1px] w-full max-w-[70px] bg-gradient-to-r from-transparent to-[#be9431]/50"></div>
+                            <h2 class="mt-1 text-3xl font-black tracking-tight sm:text-4xl"
+                                style="font-family: 'Playfair Display', serif; background: linear-gradient(to bottom, #f3d082 0%, #be9431 50%, #967022 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                {{partnership.title}}
+                            </h2>
+                            <div class="h-[1px] w-full max-w-[70px] bg-gradient-to-l from-transparent to-[#be9431]/50"></div>
+                        </div>
+
+                        <p class="mt-2 text-[10px] font-medium tracking-[0.2em] text-white/80">{{partnership.subtitle}}</p>
+                        
+                        <!-- Divider -->
+                        <div class="my-6 flex w-full items-center justify-center gap-3">
+                            <div class="h-[1px] w-full max-w-[70px] bg-gradient-to-r from-transparent to-[#be9431]/50"></div>
+                            <div class="h-1.5 w-1.5 rotate-45 border border-[#be9431] bg-[#be9431]"></div>
+                            <div class="h-[1px] w-full max-w-[70px] bg-gradient-to-l from-transparent to-[#be9431]/50"></div>
+                        </div>
+
+                        <!-- Coming Soon Card -->
+                        <div class="w-full rounded-2xl border border-[#be9431]/40 bg-black/60 p-6 shadow-inner text-center">
+                            <div class="mb-3 flex items-center justify-center gap-3">
+                                <div class="h-[1px] w-8 bg-[#be9431]/40"></div>
+                                <span class="text-[9px] font-bold tracking-[0.2em] text-[#be9431]">{{partnership.newPartnership}}</span>
+                                <div class="h-[1px] w-8 bg-[#be9431]/40"></div>
+                            </div>
+                            <h3 class="text-2xl font-black tracking-tight sm:text-3xl" style="font-family: 'Playfair Display', serif; background: linear-gradient(to bottom, #f3d082 0%, #be9431 50%, #967022 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                {{partnership.comingSoon}}
+                            </h3>
+                            <p class="mt-4 text-xs text-white/60 sm:text-sm">{{partnership.description}}</p>
+                        </div>
+
+                        <!-- Features Grid -->
+                        <div class="mt-8 grid w-full grid-cols-2 gap-6 md:grid-cols-4">
+                            <div class="flex flex-col items-center text-center">
+                                <i data-lucide="shield-check" class="mb-2 h-6 w-6 text-[#be9431]"></i>
+                                <h4 class="text-[9px] font-bold tracking-wider text-white">{{partnership.features.partners.title}}</h4>
+                                <p class="mt-0.5 text-[8px] leading-relaxed text-white/50">{{partnership.features.partners.desc}}</p>
+                            </div>
+                            <div class="flex flex-col items-center text-center">
+                                <i data-lucide="gem" class="mb-2 h-6 w-6 text-[#be9431]"></i>
+                                <h4 class="text-[9px] font-bold tracking-wider text-white">{{partnership.features.platform.title}}</h4>
+                                <p class="mt-0.5 text-[8px] leading-relaxed text-white/50">{{partnership.features.platform.desc}}</p>
+                            </div>
+                            <div class="flex flex-col items-center text-center">
+                                <i data-lucide="trending-up" class="mb-2 h-6 w-6 text-[#be9431]"></i>
+                                <h4 class="text-[9px] font-bold tracking-wider text-white">{{partnership.features.growth.title}}</h4>
+                                <p class="mt-0.5 text-[8px] leading-relaxed text-white/50">{{partnership.features.growth.desc}}</p>
+                            </div>
+                            <div class="flex flex-col items-center text-center">
+                                <i data-lucide="globe" class="mb-2 h-6 w-6 text-[#be9431]"></i>
+                                <h4 class="text-[9px] font-bold tracking-wider text-white">{{partnership.features.reach.title}}</h4>
+                                <p class="mt-0.5 text-[8px] leading-relaxed text-white/50">{{partnership.features.reach.desc}}</p>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" 
+                           class="group mt-8 flex items-center gap-2 rounded-xl border border-[#be9431] bg-black/40 px-8 py-2 transition-all hover:bg-[#be9431] hover:shadow-[0_0_15px_rgba(190,148,49,0.4)]">
+                            <i data-lucide="bell" class="h-3 w-3 text-[#be9431] transition-colors group-hover:text-black"></i>
+                            <span class="text-xs font-bold tracking-widest text-[#be9431] transition-colors group-hover:text-black">{{partnership.comingSoon}}</span>
+                        </a>
+                    </div>
+                </div>
+                <a id="ctaJoin" href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="btn-primary mt-8 inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5">
                     {{hero.cta}}
                 </a>
             </div>

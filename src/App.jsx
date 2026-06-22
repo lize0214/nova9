@@ -23,11 +23,12 @@ export default function App() {
     }, [lang]);
 
     useEffect(() => {
-        bootstrapLegacyModules();
+        // 每次模板更新後重新初始化遺留模塊（如 3D 地球、計數器等）
+        bootstrapLegacyModules(true); 
         if (window.lucide?.createIcons) {
             window.lucide.createIcons();
         }
-    }, []);
+    }, [template]);
 
     useEffect(() => {
         setLangSwitchHost(document.getElementById('langSwitchHost'));

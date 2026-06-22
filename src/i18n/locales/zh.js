@@ -33,8 +33,34 @@ export default {
         description: '在一个安全平台上体验优质老虎机、真人娱乐城和各种刺激的快节奏游戏。享受快速存款、即时提款、专属会员奖励和 24/7 专业客服支持。专为追求优质、安全且丰厚回报体验的新加坡玩家打造。',
         players: '玩家人数',
         paidOut: '累计派彩 (SGD)',
-        cta: '立即加入',
+        cta: '立即游戏',
         campaignEyebrow: '活动亮点'
+    },
+    partnership: {
+        eyebrow: 'NOVA9',
+        title: '合作伙伴',
+        subtitle: '强强联手 · 共创未来',
+        newPartnership: '全新合作伙伴',
+        comingSoon: '即将来临',
+        description: '令人兴奋的合作即将来临，敬请期待！',
+        features: {
+            partners: {
+                title: '强大伙伴',
+                desc: '值得信赖的全球合作'
+            },
+            platform: {
+                title: '强大平台',
+                desc: '先进的技术与资源'
+            },
+            growth: {
+                title: '共同成长',
+                desc: '携手共创更大成功'
+            },
+            reach: {
+                title: '全球覆盖',
+                desc: '拓展全球无限商机'
+            }
+        }
     },
     liveTransaction: {
         eyebrow: '实时交易动态',

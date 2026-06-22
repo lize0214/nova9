@@ -12,14 +12,18 @@ import { initDownloadBar } from '../js/modules/downloadBar.js';
 import { initPromoModal } from '../js/modules/promoModal.js';
 import { initContactFloat } from '../js/modules/contactFloat.js';
 import { initLazyMedia } from '../js/modules/lazyMedia.js';
+import { initBgEffects } from '../js/modules/bgEffects.js';
+import { initGlobe3d } from '../js/modules/globe3d.js';
 
 let initialized = false;
 
-export function bootstrapLegacyModules() {
-    if (initialized) return;
+export function bootstrapLegacyModules(force = false) {
+    if (initialized && !force) return;
 
     renderStaticContent();
     initLazyMedia();
+    initBgEffects();
+    initGlobe3d();
     initPromoModal();
     initContactFloat();
     initDownloadBar();
@@ -33,5 +37,5 @@ export function bootstrapLegacyModules() {
     initStarfield();
     initScrollReveal();
 
-    initialized = true;
+    if (!force) initialized = true;
 }
