@@ -33,8 +33,34 @@ export default {
         description: 'Experience premium slots, live casino and exciting fast games on one secure platform. Enjoy fast deposits, instant withdrawals, exclusive member rewards and professional 24/7 customer support. Built for Singapore players seeking a premium, secure and rewarding gaming experience.',
         players: 'Players',
         paidOut: 'SGD Paid Out',
-        cta: 'JOIN NOW',
+        cta: 'PLAY NOW',
         campaignEyebrow: 'Campaign Highlights'
+    },
+    partnership: {
+        eyebrow: 'NOVA9',
+        title: 'PARTNERSHIP',
+        subtitle: 'STRONGER TOGETHER. GREATER FUTURE.',
+        newPartnership: 'NEW PARTNERSHIP',
+        comingSoon: 'COMING SOON',
+        description: 'Exciting collaborations are on the way. Stay tuned for something amazing!',
+        features: {
+            partners: {
+                title: 'STRONG PARTNERS',
+                desc: 'Trusted global collaborations'
+            },
+            platform: {
+                title: 'POWERFUL PLATFORM',
+                desc: 'Advanced technology and resources'
+            },
+            growth: {
+                title: 'MUTUAL GROWTH',
+                desc: 'Growing together for greater success'
+            },
+            reach: {
+                title: 'GLOBAL REACH',
+                desc: 'Expanding opportunities worldwide'
+            }
+        }
     },
     liveTransaction: {
         eyebrow: 'Live Transaction Feed',

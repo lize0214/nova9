@@ -12,11 +12,15 @@ import { initDownloadBar } from './modules/downloadBar.js';
 import { initPromoModal } from './modules/promoModal.js';
 import { initContactFloat } from './modules/contactFloat.js';
 import { initLazyMedia } from './modules/lazyMedia.js';
+import { initBgEffects } from './modules/bgEffects.js';
+import { initGlobe3d } from './modules/globe3d.js';
 
 // 主入口：只负责按顺序初始化模块，避免逻辑耦合。
 document.addEventListener('DOMContentLoaded', () => {
     renderStaticContent();
     initLazyMedia();
+    initBgEffects();
+    initGlobe3d();
     initPromoModal();
     initContactFloat();
     initDownloadBar();
