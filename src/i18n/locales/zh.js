@@ -27,12 +27,12 @@ export default {
         register: '注册'
     },
     hero: {
-        eyebrow: '最好的线上赌场',
+        eyebrow: '欢迎来到 NOVA9 新加坡',
         title: '聪明下注，赢得更多。',
-        subtitle: '可信系统，放心畅玩。',
-        description: 'NOVA9 专为新加坡玩家打造，兼顾便捷、速度与可信赖的娱乐体验。平台安全稳定，提款快速可靠。',
+        subtitle: '新加坡可信赖的博彩平台',
+        description: '在一个安全平台上体验优质老虎机、真人娱乐城和各种刺激的快节奏游戏。享受快速存款、即时提款、专属会员奖励和 24/7 专业客服支持。专为追求优质、安全且丰厚回报体验的新加坡玩家打造。',
         players: '玩家人数',
-        paidOut: '累计派彩（SGD）',
+        paidOut: '累计派彩 (SGD)',
         cta: '立即加入',
         campaignEyebrow: '活动亮点'
     },

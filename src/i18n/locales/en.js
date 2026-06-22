@@ -27,10 +27,10 @@ export default {
         register: 'Register'
     },
     hero: {
-        eyebrow: 'The best online casino',
-        title: 'Bet Smart. Win More.',
-        subtitle: 'Trusted system. Play with confidence.',
-        description: 'NOVA9 is designed for players in Singapore who value convenience, speed, and a trusted gaming environment. Secure platform. Fast and reliable withdrawals.',
+        eyebrow: 'Welcome to NOVA9 Singapore',
+        title: 'Play Smart. Win Bigger.',
+        subtitle: "Singapore's Trusted Gaming Platform",
+        description: 'Experience premium slots, live casino and exciting fast games on one secure platform. Enjoy fast deposits, instant withdrawals, exclusive member rewards and professional 24/7 customer support. Built for Singapore players seeking a premium, secure and rewarding gaming experience.',
         players: 'Players',
         paidOut: 'SGD Paid Out',
         cta: 'JOIN NOW',
