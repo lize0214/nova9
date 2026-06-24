@@ -9,7 +9,6 @@ import { initStarfield } from '../js/modules/starfield.js';
 import { initScrollReveal } from '../js/modules/scrollReveal.js';
 import { initLiveTransaction } from '../js/modules/liveTransaction.js';
 import { initDownloadBar } from '../js/modules/downloadBar.js';
-import { initPromoModal } from '../js/modules/promoModal.js';
 import { initContactFloat } from '../js/modules/contactFloat.js';
 import { initLazyMedia } from '../js/modules/lazyMedia.js';
 import { initBgEffects } from '../js/modules/bgEffects.js';
@@ -24,7 +23,6 @@ export function bootstrapLegacyModules(force = false) {
     initLazyMedia();
     initBgEffects();
     initGlobe3d();
-    initPromoModal();
     initContactFloat();
     initDownloadBar();
     initNavigation();

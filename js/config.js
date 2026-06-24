@@ -1,4 +1,4 @@
-﻿// 全局配置中心：所有可变配置都集中在这里，便于后期维护。
+// 全局配置中心：所有可变配置都集中在这里，便于后期维护。
 export const APP_CONFIG = {
     siteName: 'NOVA9 SG',
     telegram: 'Nova9sg_Bot',
@@ -16,7 +16,7 @@ export const APP_CONFIG = {
         monthlyFactor: 30
     },
     promoModal: {
-        enabled: false
+        enabled: true
     },
     banners: [
         'https://cdn.nova9sg.net/img/banner-00.png',
