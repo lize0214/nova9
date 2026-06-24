@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Popup Template</title>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-container">
+            
+            <!-- Close Button -->
+            <button class="close-btn" id="closeBtn">
+                <i class="fa-solid fa-xmark"></i> CLOSE
+            </button>
+
+            <!-- Sidebar -->
+            <div class="sidebar" id="tabSidebar">
+                <!-- Mobile spacing -->
+                <div class="mobile-header-spacer"></div>
+                <!-- Tabs will be rendered here -->
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area" id="contentArea">
+                <!-- Content will be rendered here -->
+            </div>
+
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
