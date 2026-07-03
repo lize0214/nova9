@@ -64,9 +64,9 @@ export default {
     },
     liveTransaction: {
         eyebrow: 'Live Transaction Feed',
-        title: 'Live Withdraw Ranking',
-        description: 'Real-time inspired withdrawal board with platform and category breakdown.',
-        boardLabel: 'LIVE WITHDRAW',
+        title: 'Highest Single Withdrawals',
+        description: 'Top 5 highest single withdrawal records from our players.',
+        boardLabel: 'HIGHEST SINGLE WITHDRAWALS',
         liveBadge: 'LIVE',
         member: 'MEMBER',
         amount: 'AMOUNT',

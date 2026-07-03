@@ -1,73 +1,13 @@
 import i18n from '../../src/i18n/index.js';
 import { formatCurrency, qs } from '../utils/dom.js';
 
-const MAX_ROWS = 5;
-const GLOBAL_SEED = 20260101;
-const REFRESH_INTERVAL_MS = 1000;
-
-const platformPool = [
-    { name: 'MEGAH5', category: 'SLOT' },
-    { name: 'RICH GAMING', category: 'SLOT' },
-    { name: 'WF GAMING', category: 'SLOT' },
-    { name: 'ACEWIN', category: 'SLOT' },
-    { name: 'EPICWIN', category: 'SLOT' },
-    { name: '888KING', category: 'SLOT' },
-    { name: 'CQ9', category: 'SLOT' },
-    { name: 'JILI', category: 'SLOT' },
-    { name: 'PRAGMATIC PLAY', category: 'SLOT' },
-    { name: 'SPADE GAMING', category: 'SLOT' },
-    { name: 'EVOLUTION', category: 'LIVE' },
-    { name: 'DREAMGAMING', category: 'LIVE' },
-    { name: 'WM CASINO', category: 'LIVE' },
-    { name: 'JDB', category: 'FISH' },
-    { name: 'YOU LIAN', category: 'FISH' }
+const FIXED_ROWS = [
+    { account: '35A703152',  amount: 69939.34, platform: 'EVOLUTION', category: 'LIVE' },
+    { account: '361968797', amount: 35450.50, platform: 'EVOLUTION', category: 'LIVE' },
+    { account: 'A052A609A', amount: 29653.72, platform: 'JILI',      category: 'SLOT' },
+    { account: 'A37505075', amount: 28770.12, platform: 'FACAI',     category: 'SLOT' },
+    { account: 'A37A5887A', amount: 23660.53, platform: 'MEGA888H5', category: 'SLOT' },
 ];
-
-function seededRandom(seed) {
-    const x = Math.sin(seed) * 10000;
-    return x - Math.floor(x);
-}
-
-function generateAmountBySeed(seed, volatility = 1) {
-    const r1 = seededRandom(seed);
-    const r2 = seededRandom(seed + 999);
-
-    let amount = 0;
-    if (r1 < 0.7) amount = 50 + r2 * 250;
-    else if (r1 < 0.85) amount = 300 + r2 * 700;
-    else if (r1 < 0.95) amount = 1000 + r2 * 4000;
-    else if (r1 < 0.995) amount = 5000 + r2 * 10000;
-    else amount = 15000 + r2 * 35000;
-
-    return Number((amount * volatility).toFixed(2));
-}
-
-function generateRowByIndex(index, epoch = 0) {
-    const seedBase = GLOBAL_SEED + index * 100;
-    const volatility = 0.94 + seededRandom(seedBase + 515 + epoch) * 0.2;
-    const amount = generateAmountBySeed(seedBase, volatility);
-    const platformData = platformPool[Math.floor(seededRandom(seedBase + 33) * platformPool.length)];
-    const account = generateMaskedAccount(seedBase + 77);
-
-    return {
-        id: `${index}-${epoch}`,
-        account,
-        amount,
-        platform: platformData.name,
-        category: platformData.category,
-        pulse: seededRandom(seedBase + 11 + epoch)
-    };
-}
-
-function getCurrentIndex() {
-    const now = Date.now() / 1000;
-    const interval = 60 + seededRandom(GLOBAL_SEED) * 240;
-    return Math.floor(now / interval);
-}
-
-function generateMaskedAccount(seed) {
-    return `65****${100 + Math.floor(seededRandom(seed) * 900)}`;
-}
 
 function formatCategory(category) {
     return i18n.t(`liveTransaction.categories.${category}`, { defaultValue: category });
@@ -89,33 +29,85 @@ function getRankIcon(rankIndex) {
     return '<svg viewBox="0 0 24 24" aria-hidden="true" class="h-3.5 w-3.5 text-amber-400"><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>';
 }
 
+function getCategoryBadge(category) {
+    const tone = category === 'LIVE'
+        ? 'text-violet-200 border-violet-300/40 bg-violet-900/30'
+        : category === 'FISH'
+            ? 'text-cyan-200 border-cyan-300/40 bg-cyan-900/25'
+            : 'text-amber-100 border-amber-300/40 bg-amber-900/25';
+    return `<span class="inline-flex rounded-full border px-2 py-0.5 text-xs font-semibold shadow-sm ${tone}">${formatCategory(category)}</span>`;
+}
+
+function getRowBg(index) {
+    return index % 2 === 0
+        ? 'bg-white/[0.03]'
+        : 'bg-white/[0.06]';
+}
+
+function animateCountUp(element, targetValue, delayMs) {
+    const duration = 900;
+    const startTime = performance.now() + delayMs;
+
+    function step(now) {
+        if (now < startTime) {
+            requestAnimationFrame(step);
+            return;
+        }
+
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // easeOutCubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = targetValue * eased;
+
+        element.textContent = formatCurrency(current);
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    }
+
+    requestAnimationFrame(step);
+}
+
+let _initialized = false;
+
 export function initLiveTransaction() {
+    if (_initialized) return;
+    _initialized = true;
+
     const tbody = qs('#liveTransactionBody');
+    const table = qs('#liveTransactionTable');
+    const cardsContainer = qs('#liveTransactionCards');
     if (!tbody) return;
 
-    let currentIndex = getCurrentIndex();
-    let rows = Array.from({ length: MAX_ROWS }, (_, i) => generateRowByIndex(currentIndex - i, currentIndex));
-    let previousAmountMap = new Map();
+    // Render table rows (desktop)
+    FIXED_ROWS.forEach((row, index) => {
+        const tr = document.createElement('tr');
+        tr.className = `align-middle text-amber-100 tx-row-stagger ${getRowBg(index)}`;
+        tr.style.animationDelay = `${index * 80}ms`;
 
-    const renderTable = () => {
-        tbody.innerHTML = '';
-        const orderedRows = [...rows].sort((a, b) => b.amount - a.amount);
-        const nextAmountMap = new Map();
+        const rankIcon = getRankIcon(index);
 
-        orderedRows.forEach((row, index) => {
-            const previousAmount = previousAmountMap.get(row.id);
-            const isNewRow = previousAmount === undefined;
-            const delta = isNewRow ? 0 : row.amount - previousAmount;
-            const amountFlashClass = isNewRow
-                ? 'tx-flash-new'
-                : delta > 0.01
-                    ? 'tx-flash-up'
-                    : delta < -0.01
-                        ? 'tx-flash-down'
-                        : '';
+        tr.innerHTML = `
+            <td class="border-b border-amber-300/20 px-2 py-3.5 text-center">${index + 1}</td>
+            <td class="border-b border-amber-300/20 px-4 py-3.5">
+                <span class="inline-flex items-center gap-2"><span class="ranking-icon">${rankIcon}</span><span class="text-sm">${row.account}</span></span>
+            </td>
+            <td class="tx-count-up border-b border-amber-300/20 px-4 py-3.5 text-sm font-semibold text-amber-100">${formatCurrency(0)}</td>
+            <td class="border-b border-amber-300/20 px-4 py-3.5 text-sm">${row.platform}</td>
+            <td class="border-b border-amber-300/20 px-4 py-3.5">${getCategoryBadge(row.category)}</td>
+        `;
+        tbody.appendChild(tr);
+    });
 
-            const tr = document.createElement('tr');
-            tr.className = `align-middle text-amber-100${isNewRow ? ' tx-row-enter' : ''}`;
+    // Render mobile cards
+    if (cardsContainer) {
+        FIXED_ROWS.forEach((row, index) => {
+            const card = document.createElement('div');
+            card.className = 'lt-card tx-row-stagger rounded-2xl border border-amber-300/30 bg-white/5 p-4 backdrop-blur-sm';
+            card.style.animationDelay = `${index * 80}ms`;
+
             const rankIcon = getRankIcon(index);
             const categoryTone = row.category === 'LIVE'
                 ? 'text-violet-200 border-violet-300/40 bg-violet-900/30'
@@ -123,33 +115,60 @@ export function initLiveTransaction() {
                     ? 'text-cyan-200 border-cyan-300/40 bg-cyan-900/25'
                     : 'text-amber-100 border-amber-300/40 bg-amber-900/25';
 
-            tr.innerHTML = `
-                <td class="border-b border-amber-100 px-3 py-2.5">
-                    <span class="inline-flex items-center gap-2">${rankIcon}<span>${row.account}</span></span>
-                </td>
-                <td class="border-b border-amber-100 px-3 py-2.5 font-semibold text-amber-100 ${amountFlashClass}">${formatCurrency(row.amount)}</td>
-                <td class="border-b border-amber-100 px-3 py-2.5">${row.platform}</td>
-                <td class="border-b border-amber-100 px-3 py-2.5"><span class="inline-flex rounded-full border px-2 py-0.5 text-xs font-semibold ${categoryTone}">${formatCategory(row.category)}</span></td>
+            card.innerHTML = `
+                <div class="lt-card-row">
+                    <span class="lt-card-label">#</span>
+                    <span class="inline-flex items-center gap-2 text-sm font-bold text-amber-100">${rankIcon} <span class="text-amber-200/80">${index + 1}</span></span>
+                </div>
+                <div class="lt-card-row">
+                    <span class="lt-card-label">${i18n.t('liveTransaction.member')}</span>
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-amber-100">${row.account}</span>
+                </div>
+                <div class="lt-card-row">
+                    <span class="lt-card-label">${i18n.t('liveTransaction.amount')}</span>
+                    <span class="lt-card-amount text-sm font-bold text-amber-100">${formatCurrency(0)}</span>
+                </div>
+                <div class="lt-card-row">
+                    <span class="lt-card-label">${i18n.t('liveTransaction.platform')}</span>
+                    <span class="lt-card-value">${row.platform}</span>
+                </div>
+                <div class="lt-card-row">
+                    <span class="lt-card-label">${i18n.t('liveTransaction.category')}</span>
+                    <span class="inline-flex rounded-full border px-2.5 py-0.5 text-[11px] font-bold shadow-sm ${categoryTone}">${formatCategory(row.category)}</span>
+                </div>
             `;
-            tbody.appendChild(tr);
-            nextAmountMap.set(row.id, row.amount);
+            cardsContainer.appendChild(card);
         });
+    }
 
-        previousAmountMap = nextAmountMap;
-    };
+    // IntersectionObserver: trigger animations when table enters viewport
+    const section = document.getElementById('live-transaction');
+    if (!section) return;
 
-    const stepFeed = () => {
-        const nextIndex = getCurrentIndex();
-        if (nextIndex !== currentIndex) {
-            currentIndex = nextIndex;
-            rows = Array.from({ length: MAX_ROWS }, (_, i) => generateRowByIndex(currentIndex - i, currentIndex));
-            renderTable();
-        }
-    };
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
 
-    renderTable();
-    const timerId = window.setInterval(stepFeed, REFRESH_INTERVAL_MS);
-    window.addEventListener('beforeunload', () => {
-        window.clearInterval(timerId);
-    }, { once: true });
+            // Fade in the table
+            if (table) {
+                table.classList.add('tx-table-enter');
+            }
+
+            // Trigger count-up on each amount cell with staggered delay
+            const amountCells = tbody.querySelectorAll('.tx-count-up');
+            const cardAmounts = cardsContainer ? cardsContainer.querySelectorAll('.lt-card-amount') : [];
+            FIXED_ROWS.forEach((row, index) => {
+                if (amountCells[index]) {
+                    animateCountUp(amountCells[index], row.amount, index * 80);
+                }
+                if (cardAmounts[index]) {
+                    animateCountUp(cardAmounts[index], row.amount, index * 80);
+                }
+            });
+
+            obs.unobserve(entry.target);
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
 }

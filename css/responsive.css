@@ -92,3 +92,23 @@
         top: -4px;
     }
 }
+
+@media (max-width: 768px) {
+    #live-transaction article {
+        border-radius: 1.25rem;
+        padding: 14px;
+    }
+
+    #live-transaction .section-head h2 {
+        font-size: 1.5rem;
+    }
+
+    .live-tx-glow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .live-tx-divider {
+        width: 6rem;
+    }
+}

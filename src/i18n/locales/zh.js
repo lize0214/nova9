@@ -64,9 +64,9 @@ export default {
     },
     liveTransaction: {
         eyebrow: '实时交易动态',
-        title: '实时提现排行榜',
-        description: '模拟实时提现看板，按平台与分类展示最新动态。',
-        boardLabel: '实时提现',
+        title: '最高单笔提现排行榜',
+        description: '来自玩家们的最高单笔提现前 5 名记录。',
+        boardLabel: '最高单笔提现记录',
         liveBadge: '实时',
         member: '会员',
         amount: '金额',
