@@ -93,11 +93,11 @@ export default {
         title: 'Get Started in 3 Simple Steps',
         description: 'Register, deposit, play, and win big.',
         step1Title: 'Step 1: Quick Registration',
-        step1Description: 'Visit the official Top1 website and click on the "Register" button. Fill in your basic details—no lengthy KYC or identity verification is required. In just a few seconds, your personal gaming account will be active and ready to go.',
+        step1Description: 'Create your NOVA9 account in less than a minute. Simply click "Register", enter your basic details, and you\'ll be ready to enjoy a world of premium entertainment. Fast sign-up, secure access, and no complicated process.',
         step2Title: 'Step 2: Instant Deposit & Bonus Claim',
-        step2Description: 'Navigate to the "Deposit" section and choose your preferred payment method. With a low minimum deposit of just SGD 10, you can start small or go big. Don\'t forget to select your 50% Welcome Boost or claim your SGD 28 Free Credit to maximize your starting balance.',
+        step2Description: 'Start playing with a normal deposit from just SGD10. Want even more rewards? Deposit SGD30 to claim your Welcome Bonus and unlock exclusive member promotions, FREE Credit offers, and exciting daily rewards.',
         step3Title: 'Step 3: Play & Win Big',
-        step3Description: 'Browse through our extensive library of premium pokies, live casino tables, and sports betting options. Choose your favorite game, place your bets, and enjoy the thrill. When you\'re ready to cash out, our Fast Withdrawal system ensures your winnings reach you safely and swiftly.'
+        step3Description: 'Discover thousands of exciting Slot Games, immersive Live Casino tables, and action-packed Fish Games from top providers. Enjoy smooth gameplay, daily promotions, and fast deposits & withdrawals whenever you\'re ready to cash out.'
     },
     providers: {
         eyebrow: 'Top Game Providers',
