@@ -459,3 +459,67 @@ body.download-bar-visible .site-header {
 .footer-logo {
     width: 150px;
 }
+
+/* --- Why Choose Us Section --- */
+
+.why-choose-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-choose-card .ripple-container::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border: 2px solid #be9431;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s ease-out;
+}
+
+.why-choose-card:hover .ripple-container::after {
+    animation: ripple-out 1.2s ease-out infinite;
+}
+
+@keyframes ripple-out {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.why-choose-card .light-sweep {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.why-choose-card:hover .light-sweep {
+    opacity: 1;
+}
+
+/* 呼吸燈背景效果 */
+.why-choose-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(190, 148, 49, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.why-choose-card:hover::before {
+    opacity: 1;
+    animation: breathing 3s ease-in-out infinite;
+}
+
+@keyframes breathing {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+}
+

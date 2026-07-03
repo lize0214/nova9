@@ -90,20 +90,14 @@ export default {
     },
     steps: {
         eyebrow: 'Quick Start Guide',
-        title: 'Get Started in 6 Steps',
-        description: 'Register, verify, deposit, play, and withdraw.',
-        registerTitle: 'Register Account',
-        registerDescription: 'Complete your NOVA9 registration.',
-        verifyTitle: 'Verify Details',
-        verifyDescription: 'Confirm your account information.',
-        loginTitle: 'NOVA9 Login',
-        loginDescription: 'Access your account anytime.',
-        depositTitle: 'Quick Deposit',
-        depositDescription: 'Deposit quickly and securely.',
-        playTitle: 'Start Playing',
-        playDescription: 'Enjoy your favourite games.',
-        withdrawTitle: 'Withdraw Winnings',
-        withdrawDescription: 'Withdraw with ease.'
+        title: 'Get Started in 3 Simple Steps',
+        description: 'Register, deposit, play, and win big.',
+        step1Title: 'Step 1: Quick Registration',
+        step1Description: 'Visit the official Top1 website and click on the "Register" button. Fill in your basic details—no lengthy KYC or identity verification is required. In just a few seconds, your personal gaming account will be active and ready to go.',
+        step2Title: 'Step 2: Instant Deposit & Bonus Claim',
+        step2Description: 'Navigate to the "Deposit" section and choose your preferred payment method. With a low minimum deposit of just SGD 10, you can start small or go big. Don\'t forget to select your 50% Welcome Boost or claim your SGD 28 Free Credit to maximize your starting balance.',
+        step3Title: 'Step 3: Play & Win Big',
+        step3Description: 'Browse through our extensive library of premium pokies, live casino tables, and sports betting options. Choose your favorite game, place your bets, and enjoy the thrill. When you\'re ready to cash out, our Fast Withdrawal system ensures your winnings reach you safely and swiftly.'
     },
     providers: {
         eyebrow: 'Top Game Providers',
@@ -196,5 +190,17 @@ export default {
         label: 'Contact Us',
         whatsapp: 'WhatsApp',
         telegram: 'Telegram'
+    },
+    whyChooseUs: {
+        title: "Why Choose NOVA9 for Your Gaming Adventure?",
+        subtitle: "When it comes to online gaming, NOVA9 stands out as the trusted choice for thousands of players. We prioritize your experience by offering:",
+        noKycTitle: "No KYC Required",
+        noKycDesc: "Jump straight into the action without tedious verification processes.",
+        fastWithdrawTitle: "Fast Withdrawals",
+        fastWithdrawDesc: "We value your time. Enjoy lightning-fast payouts so you can enjoy your winnings sooner.",
+        accessibilityTitle: "24/7 Accessibility",
+        accessibilityDesc: "Our platform is live and ready whenever you are, offering non-stop excitement every day.",
+        mobileTitle: "Mobile-Optimized",
+        mobileDesc: "Play on the go! NOVA9 is fully optimized for a smooth experience on any smartphone."
     }
 };
