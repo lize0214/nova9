@@ -1,24 +1,12 @@
-:root {
-    --popup-bg: #0f0f0f;
-    --sidebar-bg: #1a1a1a;
-    --accent-gold-light: #f3d082;
-    --accent-gold-main: #be9431;
-    --accent-gold-dark: #967022;
-    --text-main: #ffffff;
-    --text-muted: rgba(255, 255, 255, 0.6);
-    --border-color: rgba(190, 148, 49, 0.3);
-    --transition-speed: 0.5s;
-}
+/* ── Popup Scoped Styles ── */
+/* 所有樣式僅作用於 .popup-overlay 內部，不會影響宿主頁面。 */
 
-* {
+.popup-overlay,
+.popup-overlay * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-body {
-    background: #222;
 }
 
 .popup-overlay {
@@ -31,10 +19,10 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    animation: fadeIn 0.3s ease-out;
+    animation: popupFadeIn 0.3s ease-out;
 }
 
-@keyframes fadeIn {
+@keyframes popupFadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
@@ -43,21 +31,31 @@ body {
     display: flex;
 }
 
-.popup-container {
-    background: var(--popup-bg);
-    border: 1px solid var(--border-color);
+.popup-overlay .popup-container {
+    --popup-bg: #0f0f0f;
+    --sidebar-bg: #1a1a1a;
+    --accent-gold-light: #f3d082;
+    --accent-gold-main: #be9431;
+    --accent-gold-dark: #967022;
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --border-color: rgba(190, 148, 49, 0.3);
+    --transition-speed: 0.5s;
+
+    background: #0f0f0f;
+    border: 1px solid rgba(190, 148, 49, 0.3);
     border-radius: 2rem;
     overflow: hidden;
     display: flex;
     position: relative;
     box-shadow: 0 30px 100px rgba(0,0,0,0.8), 0 0 40px rgba(190,148,49,0.1);
-    transition: width var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1), 
-                height var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     max-width: 90vw;
     max-height: 90vh;
 }
 
-.close-btn {
+.popup-overlay .close-btn {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -80,14 +78,14 @@ body {
     transition: all 0.3s ease;
 }
 
-.close-btn:hover {
+.popup-overlay .close-btn:hover {
     background: #b91c1c;
     transform: scale(1.05);
 }
 
-.sidebar {
+.popup-overlay .sidebar {
     width: 288px;
-    background: var(--sidebar-bg);
+    background: #1a1a1a;
     border-right: 1px solid rgba(190, 148, 49, 0.1);
     display: flex;
     flex-direction: column;
@@ -96,12 +94,12 @@ body {
     flex-shrink: 0;
 }
 
-.mobile-header-spacer {
+.popup-overlay .mobile-header-spacer {
     display: none;
     height: 60px;
 }
 
-.tab-btn {
+.popup-overlay .tab-btn {
     background: transparent;
     border: 1px solid transparent;
     color: rgba(255, 255, 255, 0.6);
@@ -121,40 +119,40 @@ body {
     letter-spacing: 1px;
 }
 
-.tab-btn-content {
+.popup-overlay .tab-btn-content {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.tab-btn i.fa-chevron-right {
+.popup-overlay .tab-btn i.fa-chevron-right {
     font-size: 10px;
     opacity: 0;
     transition: all 0.3s ease;
 }
 
-.tab-btn:hover {
+.popup-overlay .tab-btn:hover {
     background: rgba(255,255,255,0.05);
     color: white;
 }
 
-.tab-btn.active {
+.popup-overlay .tab-btn.active {
     background: linear-gradient(90deg, rgba(190, 148, 49, 0.3), rgba(190, 148, 49, 0.1));
     border-color: rgba(190, 148, 49, 0.5);
     color: white;
 }
 
-.tab-btn.active i.fa-chevron-right {
+.popup-overlay .tab-btn.active i.fa-chevron-right {
     opacity: 1;
     transform: translateX(4px);
-    color: var(--accent-gold-main);
+    color: #be9431;
 }
 
-.tab-btn.active i:first-child {
-    color: var(--accent-gold-light);
+.popup-overlay .tab-btn.active i:first-child {
+    color: #f3d082;
 }
 
-.content-area {
+.popup-overlay .content-area {
     flex: 1;
     padding: 40px;
     overflow-y: auto;
@@ -162,7 +160,7 @@ body {
     position: relative;
 }
 
-.tab-title {
+.popup-overlay .tab-title {
     font-family: 'Playfair Display', serif;
     font-size: 32px;
     font-weight: 900;
@@ -175,15 +173,15 @@ body {
     gap: 15px;
 }
 
-.tab-subtitle {
+.popup-overlay .tab-subtitle {
     font-size: 14px;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 30px;
     font-weight: 500;
 }
 
 /* World Cup Specific Styles */
-.wc-header {
+.popup-overlay .wc-header {
     background: linear-gradient(135deg, rgba(190, 148, 49, 0.2), transparent);
     border: 1px solid rgba(190, 148, 49, 0.3);
     padding: 25px;
@@ -195,15 +193,15 @@ body {
     gap: 20px;
 }
 
-.wc-kickoff {
+.popup-overlay .wc-kickoff {
     font-size: 10px;
     font-weight: 800;
-    color: var(--accent-gold-main);
+    color: #be9431;
     letter-spacing: 2px;
     margin-bottom: 4px;
 }
 
-.wc-main-title {
+.popup-overlay .wc-main-title {
     font-size: 20px;
     font-weight: 900;
     color: white;
@@ -211,12 +209,12 @@ body {
     text-transform: uppercase;
 }
 
-.countdown-grid {
+.popup-overlay .countdown-grid {
     display: flex;
     gap: 10px;
 }
 
-.cd-box {
+.popup-overlay .cd-box {
     background: rgba(0,0,0,0.6);
     border: 1px solid rgba(190, 148, 49, 0.2);
     padding: 8px;
@@ -225,28 +223,28 @@ body {
     text-align: center;
 }
 
-.cd-num {
+.popup-overlay .cd-num {
     display: block;
     font-size: 20px;
     font-weight: 900;
-    color: var(--accent-gold-light);
+    color: #f3d082;
     font-family: monospace;
 }
 
-.cd-label {
+.popup-overlay .cd-label {
     font-size: 8px;
     color: rgba(255,255,255,0.4);
     font-weight: 700;
 }
 
-.wc-grid {
+.popup-overlay .wc-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 12px;
     margin-bottom: 30px;
 }
 
-.team-pill {
+.popup-overlay .team-pill {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     padding: 15px;
@@ -258,12 +256,12 @@ body {
     cursor: pointer;
 }
 
-.team-pill:hover {
+.popup-overlay .team-pill:hover {
     background: rgba(190, 148, 49, 0.15);
     border-color: rgba(190, 148, 49, 0.4);
 }
 
-.team-flag {
+.popup-overlay .team-flag {
     width: 40px;
     height: 28px;
     object-fit: cover;
@@ -272,30 +270,30 @@ body {
     margin-bottom: 10px;
 }
 
-.team-name {
+.popup-overlay .team-name {
     color: white;
     font-size: 12px;
     font-weight: 800;
     margin-bottom: 4px;
 }
 
-.team-odds {
+.popup-overlay .team-odds {
     font-size: 10px;
-    color: var(--accent-gold-main);
+    color: #be9431;
     font-weight: 600;
 }
 
-.wc-how-to {
+.popup-overlay .wc-how-to {
     background: rgba(0,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.05);
     padding: 25px;
     border-radius: 1.5rem;
 }
 
-.how-to-title {
+.popup-overlay .how-to-title {
     font-size: 11px;
     font-weight: 900;
-    color: var(--accent-gold-main);
+    color: #be9431;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -304,7 +302,7 @@ body {
     gap: 10px;
 }
 
-.step-item {
+.popup-overlay .step-item {
     display: flex;
     gap: 15px;
     align-items: center;
@@ -313,10 +311,10 @@ body {
     color: rgba(255,255,255,0.8);
 }
 
-.step-num {
+.popup-overlay .step-num {
     width: 24px;
     height: 24px;
-    background: var(--accent-gold-main);
+    background: #be9431;
     color: black;
     border-radius: 50%;
     display: flex;
@@ -328,21 +326,21 @@ body {
 }
 
 /* Generic content styles */
-.responsive-img {
+.popup-overlay .responsive-img {
     width: 100%;
     border-radius: 1.5rem;
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-.link-grid {
+.popup-overlay .link-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin-top: 20px;
 }
 
-.backup-link {
+.popup-overlay .backup-link {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     padding: 15px;
@@ -355,13 +353,13 @@ body {
     transition: all 0.3s ease;
 }
 
-.backup-link:hover {
+.popup-overlay .backup-link:hover {
     background: rgba(190, 148, 49, 0.1);
     border-color: rgba(190, 148, 49, 0.4);
-    color: var(--accent-gold-light);
+    color: #f3d082;
 }
 
-.cta-btn {
+.popup-overlay .cta-btn {
     width: 100%;
     padding: 18px;
     margin-top: 40px;
@@ -381,49 +379,49 @@ body {
     transition: all 0.3s ease;
 }
 
-.cta-btn:hover {
+.popup-overlay .cta-btn:hover {
     box-shadow: 0 0 30px rgba(190, 148, 49, 0.5);
     transform: translateY(-2px);
 }
 
-.cta-btn:active {
+.popup-overlay .cta-btn:active {
     transform: scale(0.98);
 }
 
-.loading-spinner {
+.popup-overlay .loading-spinner {
     position: absolute;
     inset: 0;
-    background: var(--popup-bg);
+    background: #0f0f0f;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 5;
 }
 
-.spinner {
+.popup-overlay .spinner {
     width: 40px;
     height: 40px;
     border: 4px solid rgba(190, 148, 49, 0.2);
-    border-top: 4px solid var(--accent-gold-main);
+    border-top: 4px solid #be9431;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: popupSpin 1s linear infinite;
 }
 
-@keyframes spin {
+@keyframes popupSpin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .popup-container {
+    .popup-overlay .popup-container {
         flex-direction: column;
         width: 95vw;
         height: auto !important;
         max-height: 90vh;
     }
-    
-    .sidebar {
+
+    .popup-overlay .sidebar {
         width: 100%;
         height: auto;
         flex-direction: row;
@@ -433,18 +431,18 @@ body {
         border-bottom: 1px solid rgba(190, 148, 49, 0.1);
         scrollbar-width: none;
     }
-    
-    .sidebar::-webkit-scrollbar {
+
+    .popup-overlay .sidebar::-webkit-scrollbar {
         display: none;
     }
-    
-    .mobile-header-spacer {
+
+    .popup-overlay .mobile-header-spacer {
         display: block;
         width: 60px;
         flex-shrink: 0;
     }
 
-    .tab-btn {
+    .popup-overlay .tab-btn {
         margin-bottom: 0;
         margin-right: 8px;
         white-space: nowrap;
@@ -453,25 +451,25 @@ body {
         padding: 10px 15px;
     }
 
-    .tab-btn i.fa-chevron-right {
+    .popup-overlay .tab-btn i.fa-chevron-right {
         display: none;
     }
 
-    .content-area {
+    .popup-overlay .content-area {
         padding: 25px;
     }
 
-    .tab-title {
+    .popup-overlay .tab-title {
         font-size: 24px;
     }
 
-    .wc-header {
+    .popup-overlay .wc-header {
         flex-direction: column;
         padding: 20px;
         text-align: center;
     }
 
-    .link-grid {
+    .popup-overlay .link-grid {
         grid-template-columns: 1fr;
     }
 }

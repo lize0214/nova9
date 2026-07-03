@@ -19,10 +19,13 @@ export const APP_CONFIG = {
         enabled: true
     },
     banners: [
-        'https://cdn.nova9sg.net/img/banner-00.png',
-        'https://cdn.nova9sg.net/img/banner-01.png',
-        'https://cdn.nova9sg.net/img/banner-02.png',
-        'https://cdn.nova9sg.net/img/banner-03.png'
+        'https://cdn.nova9sg.net/img/nova9-banner-00.png',
+        'https://cdn.nova9sg.net/img/nova9-banner-01.png',
+        'https://cdn.nova9sg.net/img/nova9-banner-02.png',
+        'https://cdn.nova9sg.net/img/nova9-banner-03.png',
+        'https://cdn.nova9sg.net/img/nova9-banner-04.png',
+        'https://cdn.nova9sg.net/img/nova9-banner-05.png',
+        'https://cdn.nova9sg.net/img/nova9-banner-06.png'
     ],
     providers: [
         {

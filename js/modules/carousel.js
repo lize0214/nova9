@@ -8,7 +8,7 @@ export function initBannerCarousel() {
     const items = () => Array.from(track.children);
     if (items().length === 0) return;
 
-    const PAUSE = 40 * 1000;
+    const PAUSE = 9 * 1000;
     const SPEED = 400;
     const SWIPE_THRESHOLD = 50;
     let index = 0;

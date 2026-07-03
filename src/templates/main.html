@@ -88,8 +88,8 @@
                     <img src="https://cdn.nova9sg.net/img/partnership-logo.png" alt="Partnership Logo" class="h-10 w-auto sm:h-12">
                 </div>
 
-                <!-- Partnership Section Replicated from Design (Scaled down 30%) -->
-                <div id="partnershipSection" class="relative mx-auto mt-8 max-w-2xl overflow-hidden rounded-[1.75rem] border border-[#be9431]/30 bg-black/40 p-6 shadow-[0_0_40px_rgba(190,148,49,0.1)] backdrop-blur-md">
+                <!-- Partnership Section — clickable card linking to the platform -->
+                <a id="partnershipSection" href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="group relative mx-auto mt-8 block max-w-2xl overflow-hidden rounded-[1.75rem] border border-[#be9431]/30 bg-black/40 p-6 shadow-[0_0_40px_rgba(190,148,49,0.1)] backdrop-blur-md transition-all duration-300 hover:border-[#be9431] hover:shadow-[0_0_50px_rgba(190,148,49,0.2)] hover:scale-[1.02]">
                     <!-- Background Enhancements -->
                     <div class="partnership-bg-elements" aria-hidden="true">
                         <div class="partnership-pattern"></div>
@@ -138,7 +138,7 @@
                                 <span class="text-[9px] font-bold tracking-[0.2em] text-[#be9431]">{{partnership.newPartnership}}</span>
                                 <div class="h-[1px] w-8 bg-[#be9431]/40"></div>
                             </div>
-                            <h3 class="text-2xl font-black tracking-tight sm:text-3xl" style="font-family: 'Playfair Display', serif; background: linear-gradient(to bottom, #f3d082 0%, #be9431 50%, #967022 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            <h3 class="text-2xl font-black tracking-tight sm:text-3xl" style="font-family: 'Playfair Display', serif; background: linear-gradient(140deg, #d2ae59 0%, #be9431 45%, #967022 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
                                 {{partnership.comingSoon}}
                             </h3>
                             <p class="mt-4 text-xs text-white/60 sm:text-sm">{{partnership.description}}</p>
@@ -168,17 +168,87 @@
                             </div>
                         </div>
 
-                        <!-- CTA Button -->
-                        <a href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" 
-                           class="group mt-8 flex items-center gap-2 rounded-xl border border-[#be9431] bg-black/40 px-8 py-2 transition-all hover:bg-[#be9431] hover:shadow-[0_0_15px_rgba(190,148,49,0.4)]">
-                            <i data-lucide="bell" class="h-3 w-3 text-[#be9431] transition-colors group-hover:text-black"></i>
-                            <span class="text-xs font-bold tracking-widest text-[#be9431] transition-colors group-hover:text-black">{{partnership.comingSoon}}</span>
-                        </a>
+                        <!-- Coming Soon Badge (non-clickable) -->
+                        <div class="group mt-8 inline-flex items-center gap-2 rounded-xl px-8 py-2 shadow-[0_10px_26px_rgba(0,0,0,0.36)]" style="background: linear-gradient(140deg, #d2ae59 0%, #be9431 45%, #967022 100%);">
+                            <i data-lucide="bell" class="h-3 w-3 text-white"></i>
+                            <span class="text-xs font-bold tracking-widest text-white">{{partnership.comingSoon}}</span>
+                        </div>
                     </div>
-                </div>
-                <a id="ctaJoin" href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="btn-primary mt-8 inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5">
-                    {{hero.cta}}
                 </a>
+                <!-- Why Choose Us Section -->
+                <section id="whyChooseUsSection" class="relative mt-4 py-12">
+                    <div class="container relative mx-auto w-[min(1100px,92vw)] text-center">
+                        <h2 class="text-3xl font-black tracking-tight sm:text-4xl"
+                            style="font-family: 'Playfair Display', serif; background: linear-gradient(to bottom, #f3d082 0%, #be9431 50%, #967022 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            {{whyChooseUs.title}}
+                        </h2>
+                        <p class="mx-auto mt-4 max-w-2xl text-base text-white/70 sm:text-lg">
+                            {{whyChooseUs.subtitle}}
+                        </p>
+
+                        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                            <!-- Card 1: No KYC -->
+                            <div class="why-choose-card group relative overflow-hidden rounded-2xl border border-[#be9431]/30 bg-black/40 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#be9431] hover:shadow-[0_0_30px_rgba(190,148,49,0.2)]" data-reveal data-tilt style="transition-delay: 0ms;">
+                                <div class="light-sweep"></div>
+                                <div class="relative z-10 flex flex-col items-center">
+                                    <div class="ripple-container relative mb-6">
+                                        <div class="absolute inset-0 animate-pulse rounded-full bg-[#be9431]/10 blur-xl"></div>
+                                        <div class="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#be9431] bg-black shadow-[0_0_15px_rgba(190,148,49,0.3)]">
+                                            <i data-lucide="shield-off" class="h-8 w-8 text-[#be9431]"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-3 text-lg font-bold text-white">{{whyChooseUs.noKycTitle}}</h3>
+                                    <p class="text-sm leading-relaxed text-white/50">{{whyChooseUs.noKycDesc}}</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: Fast Withdrawals -->
+                            <div class="why-choose-card group relative overflow-hidden rounded-2xl border border-[#be9431]/30 bg-black/40 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#be9431] hover:shadow-[0_0_30px_rgba(190,148,49,0.2)]" data-reveal data-tilt style="transition-delay: 150ms;">
+                                <div class="light-sweep"></div>
+                                <div class="relative z-10 flex flex-col items-center">
+                                    <div class="ripple-container relative mb-6">
+                                        <div class="absolute inset-0 animate-pulse rounded-full bg-[#be9431]/10 blur-xl"></div>
+                                        <div class="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#be9431] bg-black shadow-[0_0_15px_rgba(190,148,49,0.3)]">
+                                            <i data-lucide="zap" class="h-8 w-8 text-[#be9431]"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-3 text-lg font-bold text-white">{{whyChooseUs.fastWithdrawTitle}}</h3>
+                                    <p class="text-sm leading-relaxed text-white/50">{{whyChooseUs.fastWithdrawDesc}}</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: 24/7 Accessibility -->
+                            <div class="why-choose-card group relative overflow-hidden rounded-2xl border border-[#be9431]/30 bg-black/40 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#be9431] hover:shadow-[0_0_30px_rgba(190,148,49,0.2)]" data-reveal data-tilt style="transition-delay: 300ms;">
+                                <div class="light-sweep"></div>
+                                <div class="relative z-10 flex flex-col items-center">
+                                    <div class="ripple-container relative mb-6">
+                                        <div class="absolute inset-0 animate-pulse rounded-full bg-[#be9431]/10 blur-xl"></div>
+                                        <div class="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#be9431] bg-black shadow-[0_0_15px_rgba(190,148,49,0.3)]">
+                                            <i data-lucide="headset" class="h-8 w-8 text-[#be9431]"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-3 text-lg font-bold text-white">{{whyChooseUs.accessibilityTitle}}</h3>
+                                    <p class="text-sm leading-relaxed text-white/50">{{whyChooseUs.accessibilityDesc}}</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: Mobile-Optimized -->
+                            <div class="why-choose-card group relative overflow-hidden rounded-2xl border border-[#be9431]/30 bg-black/40 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#be9431] hover:shadow-[0_0_30px_rgba(190,148,49,0.2)]" data-reveal data-tilt style="transition-delay: 450ms;">
+                                <div class="light-sweep"></div>
+                                <div class="relative z-10 flex flex-col items-center">
+                                    <div class="ripple-container relative mb-6">
+                                        <div class="absolute inset-0 animate-pulse rounded-full bg-[#be9431]/10 blur-xl"></div>
+                                        <div class="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#be9431] bg-black shadow-[0_0_15px_rgba(190,148,49,0.3)]">
+                                            <i data-lucide="smartphone" class="h-8 w-8 text-[#be9431]"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-3 text-lg font-bold text-white">{{whyChooseUs.mobileTitle}}</h3>
+                                    <p class="text-sm leading-relaxed text-white/50">{{whyChooseUs.mobileDesc}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
         </section>
@@ -269,60 +339,38 @@
                     <h2 class="text-3xl font-semibold sm:text-4xl">{{steps.title}}</h2>
                     <p class="mt-2">{{steps.description}}</p>
                 </div>
-                <div class="steps-grid mt-10 grid gap-4 md:grid-cols-3">
-                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
-                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">01</p>
-                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
-                            <i data-lucide="user-plus" aria-hidden="true" class="h-6 w-6"></i>
+                <div class="mt-10 grid gap-8 md:grid-cols-2 md:items-stretch">
+                    <!-- Left: Illustration Image -->
+                    <div class="flex justify-center">
+                        <img src="https://cdn.nova9sg.net/img/3-steps-join.png" alt="3 Steps to Join" class="w-full max-w-md rounded-2xl" />
+                    </div>
+                    <!-- Right: 3 Step Details -->
+                    <div class="flex h-full flex-col gap-0">
+                        <!-- Step 1 -->
+                        <div class="flex flex-1 gap-4 overflow-y-auto rounded-2xl border border-amber-300/20 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-amber-300/40 hover:bg-white/[0.07]">
+                            <span class="flex-shrink-0 text-3xl font-bold text-amber-300/30">01</span>
+                            <div>
+                                <h3 class="text-base font-semibold">{{steps.step1Title}}</h3>
+                                <p class="mt-1 text-sm leading-relaxed text-white/70">{{steps.step1Description}}</p>
+                            </div>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold">
-                            <a href="https://nova9sg.win/RFN9LANDINGPAGE" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 rounded-md px-1 hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70">
-                                {{steps.registerTitle}}
-                                <i data-lucide="external-link" aria-hidden="true" class="h-4 w-4"></i>
-                            </a>
-                        </h3>
-                        <p class="mt-2 text-sm">{{steps.registerDescription}}</p>
-                    </article>
-                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
-                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">02</p>
-                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
-                            <i data-lucide="badge-check" aria-hidden="true" class="h-6 w-6"></i>
+                        <!-- Step 2 -->
+                        <div class="flex flex-1 gap-4 overflow-y-auto rounded-2xl border border-amber-300/20 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-amber-300/40 hover:bg-white/[0.07]">
+                            <span class="flex-shrink-0 text-3xl font-bold text-amber-300/30">02</span>
+                            <div>
+                                <h3 class="text-base font-semibold">{{steps.step2Title}}</h3>
+                                <p class="mt-1 text-sm leading-relaxed text-white/70">{{steps.step2Description}}</p>
+                            </div>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold">{{steps.verifyTitle}}</h3>
-                        <p class="mt-2 text-sm">{{steps.verifyDescription}}</p>
-                    </article>
-                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
-                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">03</p>
-                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
-                            <i data-lucide="log-in" aria-hidden="true" class="h-6 w-6"></i>
+                        <!-- Step 3 -->
+                        <div class="flex flex-1 gap-4 overflow-y-auto rounded-2xl border border-amber-300/20 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-amber-300/40 hover:bg-white/[0.07]">
+                            <span class="flex-shrink-0 text-3xl font-bold text-amber-300/30">03</span>
+                            <div>
+                                <h3 class="text-base font-semibold">{{steps.step3Title}}</h3>
+                                <p class="mt-1 text-sm leading-relaxed text-white/70">{{steps.step3Description}}</p>
+                            </div>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold">{{steps.loginTitle}}</h3>
-                        <p class="mt-2 text-sm">{{steps.loginDescription}}</p>
-                    </article>
-                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
-                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">04</p>
-                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
-                            <i data-lucide="wallet" aria-hidden="true" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="mt-4 text-lg font-semibold">{{steps.depositTitle}}</h3>
-                        <p class="mt-2 text-sm">{{steps.depositDescription}}</p>
-                    </article>
-                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
-                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">05</p>
-                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
-                            <i data-lucide="gamepad-2" aria-hidden="true" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="mt-4 text-lg font-semibold">{{steps.playTitle}}</h3>
-                        <p class="mt-2 text-sm">{{steps.playDescription}}</p>
-                    </article>
-                    <article class="step-card rounded-2xl p-6 text-center backdrop-blur-sm">
-                        <p class="text-xs font-semibold tracking-widest text-amber-100/75">06</p>
-                        <div class="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300/50 bg-white/10 text-amber-100">
-                            <i data-lucide="banknote" aria-hidden="true" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="mt-4 text-lg font-semibold">{{steps.withdrawTitle}}</h3>
-                        <p class="mt-2 text-sm">{{steps.withdrawDescription}}</p>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>

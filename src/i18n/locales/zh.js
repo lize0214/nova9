@@ -90,20 +90,14 @@ export default {
     },
     steps: {
         eyebrow: '快速开始',
-        title: '6 步开始体验',
-        description: '注册、验证、存款、开始游戏并快速提款。',
-        registerTitle: '注册账号',
-        registerDescription: '完成你的 NOVA9 注册流程。',
-        verifyTitle: '验证资料',
-        verifyDescription: '确认你的账户信息。',
-        loginTitle: '登录 NOVA9',
-        loginDescription: '随时访问你的账户。',
-        depositTitle: '快速存款',
-        depositDescription: '快速且安全地完成存款。',
-        playTitle: '开始游戏',
-        playDescription: '畅玩你喜爱的热门游戏。',
-        withdrawTitle: '提款到账',
-        withdrawDescription: '轻松完成提款。'
+        title: '3 步开始体验',
+        description: '注册、存款、畅玩并赢取大奖。',
+        step1Title: '步骤 1：快速注册',
+        step1Description: '访问 Top1 官方网站，点击"注册"按钮。填写基本信息——无需繁琐的 KYC 或身份验证。只需几秒钟，您的个人游戏账户即可激活并准备就绪。',
+        step2Title: '步骤 2：即时存款与领取红利',
+        step2Description: '前往"存款"区域，选择您偏好的支付方式。最低存款仅需 SGD 10，您可以从小额开始或大额投入。别忘了选择您的 50% 欢迎加成或领取 SGD 28 免费积分，最大化您的起始资金。',
+        step3Title: '步骤 3：畅玩游戏 & 赢取大奖',
+        step3Description: '浏览我们丰富的精选老虎机、真人娱乐城和体育博彩选项。选择您喜爱的游戏，下注并享受刺激。当您准备提现时，我们的快速提款系统将确保您的奖金安全迅速地到账。'
     },
     providers: {
         eyebrow: '热门游戏厂商',
@@ -196,5 +190,17 @@ export default {
         label: '联系客服',
         whatsapp: 'WhatsApp',
         telegram: 'Telegram'
+    },
+    whyChooseUs: {
+        title: "为什么选择 NOVA9 开启您的游戏冒险？",
+        subtitle: "在在线游戏领域，NOVA9 是数千名玩家信赖的首选。我们优先考虑您的体验，提供：",
+        noKycTitle: "无需 KYC 验证",
+        noKycDesc: "直接开始行动，无需繁琐的身份验证流程。",
+        fastWithdrawTitle: "极速提款",
+        fastWithdrawDesc: "我们重视您的时间。享受闪电般的出款速度，更快领取您的收益。",
+        accessibilityTitle: "24/7 全天候服务",
+        accessibilityDesc: "我们的平台随时待命，每天为您提供不间断的兴奋体验。",
+        mobileTitle: "移动端优化",
+        mobileDesc: "随时随地玩！NOVA9 已完全优化，确保在任何智能手机上都有流畅体验。"
     }
 };

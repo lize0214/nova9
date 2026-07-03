@@ -14,6 +14,7 @@ import { initContactFloat } from './modules/contactFloat.js';
 import { initLazyMedia } from './modules/lazyMedia.js';
 import { initBgEffects } from './modules/bgEffects.js';
 import { initGlobe3d } from './modules/globe3d.js';
+import { initCardTilt } from './modules/cardTilt.js';
 
 // 主入口：只负责按顺序初始化模块，避免逻辑耦合。
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initLazyMedia();
     initBgEffects();
     initGlobe3d();
+    initCardTilt();
     initPromoModal();
+
     initContactFloat();
     initDownloadBar();
     initNavigation();
