@@ -63,7 +63,7 @@ export default {
         }
     },
     liveTransaction: {
-        eyebrow: 'Live Transaction Feed',
+        eyebrow: 'Top Withdraw Ranking',
         title: 'Highest Single Withdrawals',
         description: 'Top 5 highest single withdrawal records from our players.',
         boardLabel: 'HIGHEST SINGLE WITHDRAWALS',
