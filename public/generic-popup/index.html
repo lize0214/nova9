@@ -258,39 +258,44 @@
         chevronRight: '<svg class="n9-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>'
     };
 
-    /* ── Data ── */
-    var promoData = [
-        { id: 'tab-news', title: 'TELEGRAM GROUP', icon: 'newspaper', subtitle: '📢 Stay updated with latest SS9SG promotions and instant news.', type: 'slideshow',
-            content: { images: ['https://xt30sf.b-cdn.net/media/722173af711a61ee19099.png','https://xt30sf.b-cdn.net/media/7dea122f811a696d6debc.jpg','https://xt30sf.b-cdn.net/media/f216d3ccea0a60e579c79.jpg'] },
-            action: { text: 'JOIN GROUP', icon: 'commentDots', link: 'https://t.me/SS9SG_Official', target: '_blank' }
-        },
-        { id: 'tab-battle', title: 'HIGH ROLLER BATTLE', icon: 'trophy', subtitle: '🔥 Win huge bonuses and compete for the top ranking.', type: 'single-image',
-            content: { image: 'https://cdn.nova9sg.net/promotion-1.jpg' },
-            action: { text: 'VIEW BATTLE PAGE', icon: 'calendarCheck', link: 'https://main.ss9vip.net/leaderboard' }
-        },
-        { id: 'tab-rebate', title: 'EXCLUSIVE REBATE', icon: 'chartLine', subtitle: '💰 Earn rewards whether you win or lose.', type: 'single-image',
-            content: { image: 'https://xt30sf.b-cdn.net/media/1421cfceea0a6cdfaf81c.jpg' },
-            action: { text: 'VIEW MORE BONUS', icon: 'calendarCheck', link: '/promotion' }
-        },
-        { id: 'tab-Royal', title: 'VIP PROGRAM', icon: 'crown', subtitle: '👑 Unlock exclusive VIP rewards and premium benefits.', type: 'single-image',
-            content: { image: 'https://xt30sf.b-cdn.net/media/92763dfeea0a6b6bf6b97.jpg' },
-            action: { text: 'VIEW VIP REWARDS', icon: 'arrowRight', onclick: 'programPage', args: [3] }
-        },
-        { id: 'tab-egg', title: 'FREE SPIN BONUS', icon: 'bullseye', subtitle: '🎯 Deposit SGD 20 and get 1 ticket with guaranteed rewards.', type: 'single-image',
-            content: { image: 'https://xt30sf.b-cdn.net/media/1d51103fea0a626ca44b9.jpg' },
-            action: { text: 'PLAY NOW', icon: 'arrowRight', onclick: 'programPage', args: [7] }
-        },
-        { id: 'tab-linkbackup', title: 'OFFICIAL BACKUP LINK', icon: 'link', subtitle: '📌 Bookmark these SS9SG official domains for uninterrupted access.', type: 'links',
-            content: { image: 'https://xt30sf.b-cdn.net/media/098c965fea0a6b83f0339.jpg',
-                links: [{ text: 'ss9sg.com', url: 'https://ss9sg.com/' },{ text: 'ss9sg.net', url: 'https://ss9sg.net/' },{ text: 'ss9sg.club', url: 'https://ss9sg.club/' },{ text: 'ss9sg.vip', url: 'https://ss9sg.vip/' }]
-            },
-            action: { text: 'ADD TO BOOKMARKS', icon: 'bookmark', onclick: 'bkLnk' }
-        },
-        { id: 'tab-app', title: 'DOWNLOAD APP', icon: 'download', subtitle: '📱 Download SS9SG app for faster access and exclusive rewards.', type: 'single-image',
-            content: { image: 'https://xt30sf.b-cdn.net/media/43b96bafea0a67e2d97a8.jpg' },
-            action: { text: 'DOWNLOAD NOW', icons: ['android', 'apple'], link: 'https://dn.nova9sg.me', target: '_blank' }
-        }
+    /* ── Data ──
+       👇 只需修改 title 和 image 即可，其他字段自动生成
+          - title:  标签标题
+          - image:  展示图片链接
+          - link:   按钮跳转链接（可选，不填则不显示按钮）
+          - btnText: 按钮文字（可选，默认 "VIEW MORE"）
+    ── */
+    var simpleTabs = [
+        { title: 'TELEGRAM GROUP',   image: 'https://xt30sf.b-cdn.net/media/722173af711a61ee19099.png', link: 'https://t.me/SS9SG_Official', btnText: 'JOIN GROUP' },
+        { title: 'HIGH ROLLER BATTLE', image: 'https://cdn.nova9sg.net/promotion-1.jpg',            link: 'https://main.ss9vip.net/leaderboard', btnText: 'VIEW BATTLE PAGE' },
+        { title: 'EXCLUSIVE REBATE', image: 'https://xt30sf.b-cdn.net/media/1421cfceea0a6cdfaf81c.jpg', link: '/promotion', btnText: 'VIEW MORE BONUS' },
+        { title: 'VIP PROGRAM',      image: 'https://xt30sf.b-cdn.net/media/92763dfeea0a6b6bf6b97.jpg' },
+        { title: 'FREE SPIN BONUS',  image: 'https://xt30sf.b-cdn.net/media/1d51103fea0a626ca44b9.jpg' },
+        { title: 'OFFICIAL BACKUP LINK', image: 'https://xt30sf.b-cdn.net/media/098c965fea0a6b83f0339.jpg' },
+        { title: 'DOWNLOAD APP',     image: 'https://xt30sf.b-cdn.net/media/43b96bafea0a67e2d97a8.jpg', link: 'https://dn.nova9sg.me', btnText: 'DOWNLOAD NOW' }
     ];
+
+    // 自动根据 simpleTabs 生成完整的 promoData
+    var defaultIcons = ['newspaper', 'trophy', 'chartLine', 'crown', 'bullseye', 'link', 'download'];
+    var promoData = simpleTabs.map(function(tab, i) {
+        var item = {
+            id: 'tab-' + i,
+            title: tab.title,
+            icon: defaultIcons[i % defaultIcons.length],
+            subtitle: '',
+            type: 'single-image',
+            content: { image: tab.image }
+        };
+        if (tab.link) {
+            item.action = {
+                text: tab.btnText || 'VIEW MORE',
+                icon: 'arrowRight',
+                link: tab.link,
+                target: '_blank'
+            };
+        }
+        return item;
+    });
 
     /* ── Build DOM ── */
     var overlay = document.createElement('div');

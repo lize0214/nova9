@@ -24,7 +24,7 @@ export const APP_CONFIG = {
         'https://cdn.nova9sg.net/img/nova9-banner-02.png',
         'https://cdn.nova9sg.net/img/nova9-banner-03.png',
         'https://cdn.nova9sg.net/img/nova9-banner-04.png',
-        'https://cdn.nova9sg.net/img/nova9-banner-05.png',
+        'https://cdn.nova9sg.net/img/nova9-banner-05-b.png',
         'https://cdn.nova9sg.net/img/nova9-banner-06.png'
     ],
     providers: [
