@@ -18,7 +18,7 @@ export default {
     },
     nav: {
         home: 'Home',
-        liveTransaction: 'Live Tx',
+        liveTransaction: 'Ranking',
         commission: 'Commission',
         steps: 'Steps',
         providers: 'Providers',

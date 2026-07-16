@@ -36,64 +36,66 @@
 .n9-popup-overlay .popup-container {
     background: #0f0f0f;
     border: 1px solid rgba(190,148,49,0.3);
-    border-radius: 2rem;
+    border-radius: 1.25rem;
     overflow: hidden;
     display: flex;
     position: relative;
-    box-shadow: 0 30px 100px rgba(0,0,0,0.8), 0 0 40px rgba(190,148,49,0.1);
-    transition: width 0.5s cubic-bezier(0.4,0,0.2,1), height 0.5s cubic-bezier(0.4,0,0.2,1);
+    padding-top: 38px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.8), 0 0 20px rgba(190,148,49,0.1);
+    width: 744px;
+    height: 576px;
     max-width: 90vw;
     max-height: 90vh;
 }
 
 .n9-popup-overlay .close-btn {
     position: absolute;
-    top: 15px; right: 15px;
+    top: 6px; right: 8px;
     background: #dc2626;
     border: 1px solid rgba(255,255,255,0.2);
     color: #fff;
-    padding: 8px 16px;
+    padding: 5px 12px;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 11px; font-weight: 800;
+    font-size: 10px; font-weight: 800;
     z-index: 100;
     display: flex; align-items: center; justify-content: center;
-    gap: 8px;
-    text-transform: uppercase; letter-spacing: 2px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    gap: 6px;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
 }
 .n9-popup-overlay .close-btn:hover { background: #b91c1c; transform: scale(1.05); }
+.n9-popup-overlay .close-btn .n9-icon { width: 12px; height: 12px; flex-shrink: 0; }
 
 .n9-popup-overlay .sidebar {
-    width: 288px;
+    width: 180px;
     background: #1a1a1a;
     border-right: 1px solid rgba(190,148,49,0.1);
     display: flex; flex-direction: column;
-    padding: 20px;
+    padding: 12px;
     overflow-y: auto;
     flex-shrink: 0;
 }
-.n9-popup-overlay .mobile-header-spacer { display: none; height: 60px; }
 
 .n9-popup-overlay .tab-btn {
     background: transparent;
     border: 1px solid transparent;
     color: rgba(255,255,255,0.6);
-    padding: 14px 20px;
+    padding: 10px 14px;
     text-align: left;
-    border-radius: 12px;
-    margin-bottom: 8px;
+    border-radius: 8px;
+    margin-bottom: 6px;
     cursor: pointer;
-    font-size: 11px; font-weight: 700;
+    font-size: 10px; font-weight: 700;
     display: flex; align-items: center; justify-content: space-between;
-    gap: 12px;
+    gap: 8px;
     transition: all 0.3s ease;
-    text-transform: uppercase; letter-spacing: 1px;
+    text-transform: uppercase; letter-spacing: 0.5px;
 }
-.n9-popup-overlay .tab-btn-content { display: flex; align-items: center; gap: 12px; }
-.n9-popup-overlay .tab-btn .n9-icon { width: 16px; height: 16px; flex-shrink: 0; }
-.n9-popup-overlay .tab-btn .n9-chevron { width: 10px; height: 10px; flex-shrink: 0; opacity: 0; transition: all 0.3s ease; }
+.n9-popup-overlay .tab-btn-content { display: flex; align-items: center; gap: 8px; }
+.n9-popup-overlay .tab-btn .n9-icon { width: 14px; height: 14px; flex-shrink: 0; }
+.n9-popup-overlay .tab-btn .n9-chevron { width: 8px; height: 8px; flex-shrink: 0; opacity: 0; transition: all 0.3s ease; }
 .n9-popup-overlay .tab-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
 .n9-popup-overlay .tab-btn.active {
     background: linear-gradient(90deg, rgba(190,148,49,0.3), rgba(190,148,49,0.1));
@@ -105,7 +107,7 @@
 
 .n9-popup-overlay .content-area {
     flex: 1;
-    padding: 40px;
+    padding: 24px;
     overflow-y: auto;
     background: rgba(255,255,255,0.02);
     position: relative;
@@ -113,19 +115,19 @@
 
 .n9-popup-overlay .tab-title {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 32px; font-weight: 900;
-    margin-bottom: 8px;
+    font-size: 22px; font-weight: 900;
+    margin-bottom: 6px;
     background: linear-gradient(to bottom, #f3d082 0%, #be9431 50%, #967022 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: flex; align-items: center; gap: 15px;
+    display: flex; align-items: center; gap: 10px;
 }
-.n9-popup-overlay .tab-title .n9-icon { width: 28px; height: 28px; flex-shrink: 0; }
+.n9-popup-overlay .tab-title .n9-icon { width: 22px; height: 22px; flex-shrink: 0; color: #be9431; }
 
 .n9-popup-overlay .tab-subtitle {
-    font-size: 14px;
+    font-size: 11px;
     color: rgba(255,255,255,0.6);
-    margin-bottom: 30px;
+    margin-bottom: 16px;
     font-weight: 500;
 }
 
@@ -133,81 +135,81 @@
 .n9-popup-overlay .wc-header {
     background: linear-gradient(135deg, rgba(190,148,49,0.2), transparent);
     border: 1px solid rgba(190,148,49,0.3);
-    padding: 25px; border-radius: 1.5rem;
+    padding: 16px; border-radius: 1rem;
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 30px; gap: 20px;
+    margin-bottom: 16px; gap: 14px;
 }
-.n9-popup-overlay .wc-kickoff { font-size: 10px; font-weight: 800; color: #be9431; letter-spacing: 2px; margin-bottom: 4px; }
-.n9-popup-overlay .wc-main-title { font-size: 20px; font-weight: 900; color: #fff; font-style: italic; text-transform: uppercase; }
+.n9-popup-overlay .wc-kickoff { font-size: 9px; font-weight: 800; color: #be9431; letter-spacing: 1.5px; margin-bottom: 3px; }
+.n9-popup-overlay .wc-main-title { font-size: 16px; font-weight: 900; color: #fff; font-style: italic; text-transform: uppercase; }
 
-.n9-popup-overlay .countdown-grid { display: flex; gap: 10px; }
+.n9-popup-overlay .countdown-grid { display: flex; gap: 8px; }
 .n9-popup-overlay .cd-box {
     background: rgba(0,0,0,0.6);
     border: 1px solid rgba(190,148,49,0.2);
-    padding: 8px; border-radius: 12px;
-    min-width: 65px; text-align: center;
+    padding: 6px; border-radius: 8px;
+    min-width: 50px; text-align: center;
 }
-.n9-popup-overlay .cd-num { display: block; font-size: 20px; font-weight: 900; color: #f3d082; font-family: monospace; }
-.n9-popup-overlay .cd-label { font-size: 8px; color: rgba(255,255,255,0.4); font-weight: 700; }
+.n9-popup-overlay .cd-num { display: block; font-size: 16px; font-weight: 900; color: #f3d082; font-family: monospace; }
+.n9-popup-overlay .cd-label { font-size: 7px; color: rgba(255,255,255,0.4); font-weight: 700; }
 
-.n9-popup-overlay .wc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin-bottom: 30px; }
+.n9-popup-overlay .wc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin-bottom: 16px; }
 .n9-popup-overlay .team-pill {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
-    padding: 15px; border-radius: 1rem;
+    padding: 12px; border-radius: 0.75rem;
     display: flex; flex-direction: column; align-items: center;
     transition: all 0.3s ease; cursor: pointer;
 }
 .n9-popup-overlay .team-pill:hover { background: rgba(190,148,49,0.15); border-color: rgba(190,148,49,0.4); }
-.n9-popup-overlay .team-flag { width: 40px; height: 28px; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
-.n9-popup-overlay .team-name { color: #fff; font-size: 12px; font-weight: 800; margin-bottom: 4px; }
-.n9-popup-overlay .team-odds { font-size: 10px; color: #be9431; font-weight: 600; }
+.n9-popup-overlay .team-flag { width: 32px; height: 22px; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); margin-bottom: 8px; }
+.n9-popup-overlay .team-name { color: #fff; font-size: 11px; font-weight: 800; margin-bottom: 3px; }
+.n9-popup-overlay .team-odds { font-size: 9px; color: #be9431; font-weight: 600; }
 
-.n9-popup-overlay .wc-how-to { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); padding: 25px; border-radius: 1.5rem; }
+.n9-popup-overlay .wc-how-to { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); padding: 16px; border-radius: 1rem; }
 .n9-popup-overlay .how-to-title {
-    font-size: 11px; font-weight: 900; color: #be9431;
-    letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+    font-size: 10px; font-weight: 900; color: #be9431;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
 }
-.n9-popup-overlay .step-item { display: flex; gap: 15px; align-items: center; margin-bottom: 12px; font-size: 12px; color: rgba(255,255,255,0.8); }
+.n9-popup-overlay .step-item { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; font-size: 11px; color: rgba(255,255,255,0.8); }
 .n9-popup-overlay .step-num {
-    width: 24px; height: 24px; background: #be9431; color: #000;
+    width: 20px; height: 20px; background: #be9431; color: #000;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 10px; flex-shrink: 0;
+    font-weight: 900; font-size: 9px; flex-shrink: 0;
 }
 
 /* Generic */
-.n9-popup-overlay .responsive-img { width: 100%; border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-.n9-popup-overlay .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+.n9-popup-overlay .responsive-img { width: 100%; max-height: 312px; object-fit: contain; border-radius: 1rem; display: block; }
+.n9-popup-overlay .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
 .n9-popup-overlay .backup-link {
     background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    padding: 15px; border-radius: 12px; text-align: center;
+    padding: 12px; border-radius: 8px; text-align: center;
     color: rgba(255,255,255,0.8); text-decoration: none;
-    font-size: 12px; font-weight: 700; transition: all 0.3s ease;
+    font-size: 11px; font-weight: 700; transition: all 0.3s ease;
 }
 .n9-popup-overlay .backup-link:hover { background: rgba(190,148,49,0.1); border-color: rgba(190,148,49,0.4); color: #f3d082; }
 
 .n9-popup-overlay .cta-btn {
-    width: 100%; padding: 18px; margin-top: 40px;
+    width: 100%; padding: 12px; margin-top: 20px;
     background: linear-gradient(to bottom, #f3d082, #be9431, #967022);
-    border: none; border-radius: 1rem;
+    border: none; border-radius: 0.75rem;
     color: #fff; font-weight: 900; cursor: pointer;
-    text-transform: uppercase; letter-spacing: 2px;
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    font-size: 14px; transition: all 0.3s ease;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 12px; transition: all 0.3s ease;
 }
-.n9-popup-overlay .cta-btn:hover { box-shadow: 0 0 30px rgba(190,148,49,0.5); transform: translateY(-2px); }
+.n9-popup-overlay .cta-btn:hover { box-shadow: 0 0 20px rgba(190,148,49,0.5); transform: translateY(-2px); }
 .n9-popup-overlay .cta-btn:active { transform: scale(0.98); }
-.n9-popup-overlay .cta-btn .n9-icon { width: 18px; height: 18px; flex-shrink: 0; }
+.n9-popup-overlay .cta-btn .n9-icon { width: 14px; height: 14px; flex-shrink: 0; }
 
 .n9-popup-overlay .loading-spinner {
     position: absolute; inset: 0; background: #0f0f0f;
     display: flex; align-items: center; justify-content: center; z-index: 5;
 }
 .n9-popup-overlay .spinner {
-    width: 40px; height: 40px;
-    border: 4px solid rgba(190,148,49,0.2);
-    border-top: 4px solid #be9431;
+    width: 30px; height: 30px;
+    border: 3px solid rgba(190,148,49,0.2);
+    border-top: 3px solid #be9431;
     border-radius: 50%;
     animation: n9Spin 1s linear infinite;
 }
@@ -218,14 +220,15 @@
 /* Mobile */
 @media (max-width: 768px) {
     .n9-popup-overlay .popup-container { flex-direction: column; width: 95vw; height: auto !important; max-height: 90vh; }
-    .n9-popup-overlay .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; padding: 10px; border-right: none; border-bottom: 1px solid rgba(190,148,49,0.1); scrollbar-width: none; }
+    .n9-popup-overlay .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; padding: 8px; border-right: none; border-bottom: 1px solid rgba(190,148,49,0.1); -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 4px; }
     .n9-popup-overlay .sidebar::-webkit-scrollbar { display: none; }
-    .n9-popup-overlay .mobile-header-spacer { display: block; width: 60px; flex-shrink: 0; }
-    .n9-popup-overlay .tab-btn { margin-bottom: 0; margin-right: 8px; white-space: nowrap; min-width: 140px; justify-content: center; padding: 10px 15px; }
+    .n9-popup-overlay .tab-btn { margin: 0; white-space: nowrap; flex-shrink: 0; justify-content: center; padding: 6px 10px; font-size: 9px; letter-spacing: 0.5px; border-radius: 6px; }
     .n9-popup-overlay .tab-btn .n9-chevron { display: none; }
-    .n9-popup-overlay .content-area { padding: 25px; }
-    .n9-popup-overlay .tab-title { font-size: 24px; }
-    .n9-popup-overlay .wc-header { flex-direction: column; padding: 20px; text-align: center; }
+    .n9-popup-overlay .tab-btn .n9-icon { width: 12px; height: 12px; }
+    .n9-popup-overlay .tab-btn-content { gap: 5px; }
+    .n9-popup-overlay .content-area { padding: 16px; }
+    .n9-popup-overlay .tab-title { font-size: 18px; }
+    .n9-popup-overlay .wc-header { flex-direction: column; padding: 14px; text-align: center; }
     .n9-popup-overlay .link-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -259,20 +262,21 @@
     };
 
     /* ── Data ──
-       👇 只需修改 title 和 image 即可，其他字段自动生成
-          - title:  标签标题
-          - image:  展示图片链接
-          - link:   按钮跳转链接（可选，不填则不显示按钮）
-          - btnText: 按钮文字（可选，默认 "VIEW MORE"）
+       👇 只需修改 title、image、subtitle 即可，其他字段自动生成
+          - title:    标签标题
+          - subtitle: 标签描述文案
+          - image:    展示图片链接
+          - link:     按钮跳转链接（可选，不填则不显示按钮）
+          - btnText:  按钮文字（可选，默认 "VIEW MORE"）
     ── */
     var simpleTabs = [
-        { title: 'TELEGRAM GROUP',   image: 'https://xt30sf.b-cdn.net/media/722173af711a61ee19099.png', link: 'https://t.me/SS9SG_Official', btnText: 'JOIN GROUP' },
-        { title: 'HIGH ROLLER BATTLE', image: 'https://cdn.nova9sg.net/promotion-1.jpg',            link: 'https://main.ss9vip.net/leaderboard', btnText: 'VIEW BATTLE PAGE' },
-        { title: 'EXCLUSIVE REBATE', image: 'https://xt30sf.b-cdn.net/media/1421cfceea0a6cdfaf81c.jpg', link: '/promotion', btnText: 'VIEW MORE BONUS' },
-        { title: 'VIP PROGRAM',      image: 'https://xt30sf.b-cdn.net/media/92763dfeea0a6b6bf6b97.jpg' },
-        { title: 'FREE SPIN BONUS',  image: 'https://xt30sf.b-cdn.net/media/1d51103fea0a626ca44b9.jpg' },
-        { title: 'OFFICIAL BACKUP LINK', image: 'https://xt30sf.b-cdn.net/media/098c965fea0a6b83f0339.jpg' },
-        { title: 'DOWNLOAD APP',     image: 'https://xt30sf.b-cdn.net/media/43b96bafea0a67e2d97a8.jpg', link: 'https://dn.nova9sg.me', btnText: 'DOWNLOAD NOW' }
+        { title: 'TELEGRAM GROUP',   subtitle: '📢 Stay updated with latest promotions and instant news.', image: 'https://xt30sf.b-cdn.net/media/722173af711a61ee19099.png', link: 'https://t.me/SS9SG_Official', btnText: 'JOIN GROUP' },
+        { title: 'HIGH ROLLER BATTLE', subtitle: '🔥 Win huge bonuses and compete for the top ranking.', image: 'https://cdn.nova9sg.net/promotion-1.jpg',            link: 'https://main.ss9vip.net/leaderboard', btnText: 'VIEW BATTLE PAGE' },
+        { title: 'EXCLUSIVE REBATE', subtitle: '💰 Earn rewards whether you win or lose.',              image: 'https://xt30sf.b-cdn.net/media/1421cfceea0a6cdfaf81c.jpg', link: '/promotion', btnText: 'VIEW MORE BONUS' },
+        { title: 'VIP PROGRAM',      subtitle: '👑 Unlock exclusive VIP rewards and premium benefits.', image: 'https://xt30sf.b-cdn.net/media/92763dfeea0a6b6bf6b97.jpg' },
+        { title: 'FREE SPIN BONUS',  subtitle: '🎯 Deposit and get tickets with guaranteed rewards.',   image: 'https://xt30sf.b-cdn.net/media/1d51103fea0a626ca44b9.jpg' },
+        { title: 'OFFICIAL BACKUP LINK', subtitle: '📌 Bookmark these official domains for uninterrupted access.', image: 'https://xt30sf.b-cdn.net/media/098c965fea0a6b83f0339.jpg' },
+        { title: 'DOWNLOAD APP',     subtitle: '📱 Download our app for faster access and exclusive rewards.', image: 'https://xt30sf.b-cdn.net/media/43b96bafea0a67e2d97a8.jpg', link: 'https://dn.nova9sg.me', btnText: 'DOWNLOAD NOW' }
     ];
 
     // 自动根据 simpleTabs 生成完整的 promoData
@@ -282,7 +286,7 @@
             id: 'tab-' + i,
             title: tab.title,
             icon: defaultIcons[i % defaultIcons.length],
-            subtitle: '',
+            subtitle: tab.subtitle || '',
             type: 'single-image',
             content: { image: tab.image }
         };
@@ -303,7 +307,7 @@
     overlay.id = 'n9PopupOverlay';
     overlay.innerHTML = '<div class="popup-container">' +
         '<button class="close-btn" id="n9CloseBtn">' + ICONS.xmark + ' CLOSE</button>' +
-        '<div class="sidebar" id="n9TabSidebar"><div class="mobile-header-spacer"></div></div>' +
+        '<div class="sidebar" id="n9TabSidebar"></div>' +
         '<div class="content-area" id="n9ContentArea"></div>' +
         '</div>';
     document.body.appendChild(overlay);
@@ -316,13 +320,12 @@
     var countdownInterval = null;
 
     function renderTabs() {
-        var spacer = '<div class="mobile-header-spacer"></div>';
         var tabsHtml = promoData.map(function(item) {
             return '<button class="tab-btn' + (item.id === activeTabId ? ' active' : '') + '" data-id="' + item.id + '">' +
                 '<div class="tab-btn-content">' + (ICONS[item.icon] || '') + '<span>' + item.title + '</span></div>' +
                 ICONS.chevronRight + '</button>';
         }).join('');
-        sidebar.innerHTML = spacer + tabsHtml;
+        sidebar.innerHTML = tabsHtml;
 
         var btns = sidebar.querySelectorAll('.tab-btn');
         for (var i = 0; i < btns.length; i++) {
@@ -351,11 +354,10 @@
 
         if (imageUrl) {
             var img = new Image();
-            img.onload = function() { updatePopupSize(img.naturalWidth, img.naturalHeight); displayMainContent(item); };
-            img.onerror = function() { updatePopupSize(800, 600); displayMainContent(item); };
+            img.onload = function() { displayMainContent(item); };
+            img.onerror = function() { displayMainContent(item); };
             img.src = imageUrl;
         } else {
-            updatePopupSize(800, 600);
             displayMainContent(item);
         }
     }
@@ -423,27 +425,6 @@
         }
         update();
         countdownInterval = setInterval(update, 1000);
-    }
-
-    function updatePopupSize(imgWidth, imgHeight) {
-        var container = overlay.querySelector('.popup-container');
-        var isMobile = window.innerWidth <= 768;
-        var sidebarWidth = isMobile ? 0 : 288;
-        var padding = isMobile ? 50 : 80;
-        var maxWidth = window.innerWidth * 0.9;
-        var maxHeight = window.innerHeight * 0.9;
-        var tw = imgWidth + sidebarWidth + padding;
-        var th = imgHeight + 200;
-        var scale = Math.min(1, maxWidth / tw, maxHeight / th);
-        tw *= scale; th *= scale;
-        var minContentWidth = isMobile ? 280 : 450;
-        if (!isMobile) {
-            container.style.width = Math.max(tw, minContentWidth + sidebarWidth + padding) + 'px';
-            container.style.height = Math.max(th, 550) + 'px';
-        } else {
-            container.style.width = '95vw';
-            container.style.height = 'auto';
-        }
     }
 
     function handleAction(id) {

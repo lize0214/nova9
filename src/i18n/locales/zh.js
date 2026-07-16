@@ -18,7 +18,7 @@ export default {
     },
     nav: {
         home: '首页',
-        liveTransaction: '实时交易',
+        liveTransaction: '排行榜',
         commission: '佣金',
         steps: '步骤',
         providers: '厂商',
