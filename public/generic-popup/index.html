@@ -243,7 +243,7 @@
     var ICONS = {
         futbol: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/><path d="M12 2a14.5 14.5 0 0 1 0 20"/><line x1="2" y1="12" x2="22" y2="12"/></svg>',
         newspaper: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>',
-        trophy: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9z"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9z"/><path d="M4 22h16"/><path d="M10 22V8c0-1.1.9-2 2-2s2 .9 2 2v14"/><path d="M6 9v13"/><path d="M18 9v13"/></svg>',
+        trophy: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v5a6 6 0 1 1-12 0V2z"/><path d="M8 7v11a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V7"/><path d="M4 22h16"/></svg>',
         chartLine: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>',
         crown: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M10 22h4"/></svg>',
         bullseye: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
@@ -258,7 +258,9 @@
         calendarCheck: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>',
         circleInfo: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
         xmark: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
-        chevronRight: '<svg class="n9-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>'
+        chevronRight: '<svg class="n9-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>',
+        dollar: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+        megaphone: '<svg class="n9-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>'
     };
 
     /* ── Data ──
@@ -266,17 +268,18 @@
           - title:    标签标题
           - subtitle: 标签描述文案
           - image:    展示图片链接
+          - icon:     图标名称（可选，从下方 ICONS 对象里选，如 'trophy' / 'crown' / 'download'）
           - link:     按钮跳转链接（可选，不填则不显示按钮）
           - btnText:  按钮文字（可选，默认 "VIEW MORE"）
     ── */
     var simpleTabs = [
-        { title: 'TELEGRAM GROUP',   subtitle: '📢 Stay updated with latest promotions and instant news.', image: 'https://xt30sf.b-cdn.net/media/722173af711a61ee19099.png', link: 'https://t.me/SS9SG_Official', btnText: 'JOIN GROUP' },
-        { title: 'HIGH ROLLER BATTLE', subtitle: '🔥 Win huge bonuses and compete for the top ranking.', image: 'https://cdn.nova9sg.net/promotion-1.jpg',            link: 'https://main.ss9vip.net/leaderboard', btnText: 'VIEW BATTLE PAGE' },
-        { title: 'EXCLUSIVE REBATE', subtitle: '💰 Earn rewards whether you win or lose.',              image: 'https://xt30sf.b-cdn.net/media/1421cfceea0a6cdfaf81c.jpg', link: '/promotion', btnText: 'VIEW MORE BONUS' },
-        { title: 'VIP PROGRAM',      subtitle: '👑 Unlock exclusive VIP rewards and premium benefits.', image: 'https://xt30sf.b-cdn.net/media/92763dfeea0a6b6bf6b97.jpg' },
-        { title: 'FREE SPIN BONUS',  subtitle: '🎯 Deposit and get tickets with guaranteed rewards.',   image: 'https://xt30sf.b-cdn.net/media/1d51103fea0a626ca44b9.jpg' },
-        { title: 'OFFICIAL BACKUP LINK', subtitle: '📌 Bookmark these official domains for uninterrupted access.', image: 'https://xt30sf.b-cdn.net/media/098c965fea0a6b83f0339.jpg' },
-        { title: 'DOWNLOAD APP',     subtitle: '📱 Download our app for faster access and exclusive rewards.', image: 'https://xt30sf.b-cdn.net/media/43b96bafea0a67e2d97a8.jpg', link: 'https://dn.nova9sg.me', btnText: 'DOWNLOAD NOW' }
+        { title: 'TELEGRAM GROUP',   subtitle: '📢 Join our Telegram for the latest promotions and exclusive updates.', image: 'https://static.gwvkyk.com/media/86da6de0e85a6d4e1cca7.jpg', link: 'https://t.me/nova9sg', btnText: 'JOIN CHANNEL', icon: 'megaphone' },
+        { title: 'OFFICIAL BACKUP LINK', subtitle: '🌐 Official & Verified Backup Links Safe Access • Fast Login • Always Connected', image: 'https://static.gwvkyk.com/media/de1fda41e85a605f8b49f.jpg', link: 'https://nova9sg.co/backuplink', btnText: 'BACKUP LINK', icon: 'link' },
+        { title: 'TOP REFERRAL EVENT', subtitle: '🏆 Top Referral Championship Refer Friends • Climb the Leaderboard • Win Big Cash Rewards', image: 'https://static.gwvkyk.com/media/8fd5a153e85a6f01609d6.jpg', link: 'https://nova9sg.co/referralevent', btnText: 'VIEW RANKING', icon: 'trophy' },
+        { title: 'REBATE BENIFITS', subtitle: '💎 Premium Rebate Benifits Higher Play, Greater Rewards', image: 'https://static.gwvkyk.com/media/8fd5a153e85a6f01609d6.jpg', link: 'https://nova9sg.co/promotion', btnText: 'MORE INFO', icon: 'dollar' },
+        { title: 'VIP PROGRAM',      subtitle: '👑 Unlock exclusive VIP rewards and premium benefits.', image: 'https://static.gwvkyk.com/media/0a477f74e85a610f16432.jpg', link: 'https://nova9sg.co/promotion', btnText: 'VIEW VIP REWARDS', icon: 'crown' },
+        { title: 'DEPOSIT $30 GET FREE $50', subtitle: '💰 Deposit $30 today and claim your FREE $50 bonus.', image: 'https://cdn.nova9sg.net/popup/Popup-Free-SGD50.jpg', link: 'https://nova9sg.co/deposit', btnText: 'DEPOSIT NOW', icon: 'bullseye' },
+        { title: 'DOWNLOAD APP',     subtitle: '📱 Download Nova9 App for faster access and exclusive rewards.', image: 'https://static.gwvkyk.com/media/c4b10f27e85a65700dc4a.jpg', link: 'https://nova9sg.ddrrww.top', btnText: 'DOWNLOAD NOW', icon: 'download' }
     ];
 
     // 自动根据 simpleTabs 生成完整的 promoData
@@ -285,7 +288,7 @@
         var item = {
             id: 'tab-' + i,
             title: tab.title,
-            icon: defaultIcons[i % defaultIcons.length],
+            icon: tab.icon || defaultIcons[i % defaultIcons.length],
             subtitle: tab.subtitle || '',
             type: 'single-image',
             content: { image: tab.image }
@@ -310,36 +313,32 @@
         '<div class="sidebar" id="n9TabSidebar"></div>' +
         '<div class="content-area" id="n9ContentArea"></div>' +
         '</div>';
-    document.body.appendChild(overlay);
+
+    function ensureInDOM() {
+        if (!document.getElementById('n9PopupOverlay')) {
+            document.body.appendChild(overlay);
+        }
+    }
+    ensureInDOM();
 
     /* ── Refs ── */
-    var sidebar = document.getElementById('n9TabSidebar');
-    var contentArea = document.getElementById('n9ContentArea');
-    var closeBtn = document.getElementById('n9CloseBtn');
     var activeTabId = promoData[0].id;
     var countdownInterval = null;
 
     function renderTabs() {
+        var sidebar = document.getElementById('n9TabSidebar');
+        if (!sidebar) return;
         var tabsHtml = promoData.map(function(item) {
             return '<button class="tab-btn' + (item.id === activeTabId ? ' active' : '') + '" data-id="' + item.id + '">' +
                 '<div class="tab-btn-content">' + (ICONS[item.icon] || '') + '<span>' + item.title + '</span></div>' +
                 ICONS.chevronRight + '</button>';
         }).join('');
         sidebar.innerHTML = tabsHtml;
-
-        var btns = sidebar.querySelectorAll('.tab-btn');
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener('click', function() {
-                var newId = this.getAttribute('data-id');
-                if (newId === activeTabId) return;
-                activeTabId = newId;
-                renderTabs();
-                renderContent();
-            });
-        }
     }
 
     function renderContent() {
+        var contentArea = document.getElementById('n9ContentArea');
+        if (!contentArea) return;
         var item = promoData.find(function(i) { return i.id === activeTabId; });
         if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
 
@@ -354,9 +353,19 @@
 
         if (imageUrl) {
             var img = new Image();
-            img.onload = function() { displayMainContent(item); };
-            img.onerror = function() { displayMainContent(item); };
+            var loaded = false;
+            function showContent() {
+                if (loaded) return;
+                loaded = true;
+                displayMainContent(item);
+            }
+            img.onload = showContent;
+            img.onerror = showContent;
             img.src = imageUrl;
+            // 缓存图片 onload 可能不触发，用 complete 兜底
+            if (img.complete) showContent();
+            // 3 秒超时兜底
+            setTimeout(showContent, 3000);
         } else {
             displayMainContent(item);
         }
@@ -403,12 +412,8 @@
         }
 
         html += '</div>';
-        contentArea.innerHTML = html;
-
-        var ctaBtn = document.getElementById('n9CtaBtn');
-        if (ctaBtn) {
-            ctaBtn.addEventListener('click', function() { handleAction(item.id); });
-        }
+        var ca = document.getElementById('n9ContentArea');
+        if (ca) ca.innerHTML = html;
     }
 
     function startCountdown(dateStr) {
@@ -442,13 +447,43 @@
         }
     }
 
-    closeBtn.addEventListener('click', function() {
-        overlay.classList.remove('active');
+    // 事件委托：统一处理 close、tab 切换、CTA 按钮
+    overlay.addEventListener('click', function(e) {
+        // Close 按钮
+        if (e.target.closest('#n9CloseBtn, .close-btn')) {
+            overlay.classList.remove('active');
+            return;
+        }
+        // Tab 按钮
+        var tabBtn = e.target.closest('.tab-btn');
+        if (tabBtn) {
+            var newId = tabBtn.getAttribute('data-id');
+            if (newId === activeTabId) return;
+            activeTabId = newId;
+            renderTabs();
+            renderContent();
+            return;
+        }
+        // CTA 按钮
+        var ctaBtn = e.target.closest('#n9CtaBtn, .cta-btn');
+        if (ctaBtn) {
+            handleAction(activeTabId);
+            return;
+        }
     });
 
-    // Expose public API (scoped under a namespace, not polluting window much)
+    // Expose public API
     window.N9Popup = {
-        open: function() { overlay.classList.add('active'); },
+        open: function() {
+            ensureInDOM();
+            // SPA 切换后可能内容被清空，重新渲染
+            var sb = document.getElementById('n9TabSidebar');
+            if (sb && !sb.querySelector('.tab-btn')) {
+                renderTabs();
+                renderContent();
+            }
+            overlay.classList.add('active');
+        },
         close: function() { overlay.classList.remove('active'); },
         toggle: function() { overlay.classList.toggle('active'); }
     };
