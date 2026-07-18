@@ -20,6 +20,7 @@ export const APP_CONFIG = {
     },
     banners: [
         'https://cdn.nova9sg.net/img/nova9-banner-00.png',
+        'https://cdn.nova9sg.net/popup/Popup-Official-Link.jpg',
         'https://cdn.nova9sg.net/img/nova9-banner-01.png',
         'https://cdn.nova9sg.net/img/nova9-banner-02.png',
         'https://cdn.nova9sg.net/img/nova9-banner-03.png',
