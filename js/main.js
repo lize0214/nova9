@@ -11,6 +11,7 @@ import { initLiveTransaction } from './modules/liveTransaction.js';
 import { initDownloadBar } from './modules/downloadBar.js';
 import { initPromoModal } from './modules/promoModal.js';
 import { initContactFloat } from './modules/contactFloat.js';
+import { initSocialFloat } from './modules/socialFloat.js';
 import { initLazyMedia } from './modules/lazyMedia.js';
 import { initBgEffects } from './modules/bgEffects.js';
 import { initGlobe3d } from './modules/globe3d.js';
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPromoModal();
 
     initContactFloat();
+    initSocialFloat();
     initDownloadBar();
     initNavigation();
     initCounterAnimation();

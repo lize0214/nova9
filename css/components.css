@@ -90,7 +90,13 @@
 
 @media (min-width: 921px) {
     .banner-carousel {
-        width: 100vw;
+        width: 720px;
+        height: 480px;
+    }
+
+    .banner-carousel-img {
+        height: 480px;
+        object-fit: cover;
     }
 }
 
@@ -108,7 +114,7 @@
     width: 100%;
     height: auto;
     flex: 0 0 100%;
-    border: 1px solid var(--gold-border);
+    border: none;
 }
 
 .action-row {
@@ -699,6 +705,10 @@
     z-index: 1100;
 }
 
+.social-float {
+    bottom: 92px;
+}
+
 .contact-float-toggle {
     position: relative;
     z-index: 3;
@@ -733,11 +743,11 @@
     transform: rotate(0);
 }
 
-.contact-float-toggle > [data-lucide="headset"] {
+.contact-float-toggle > :not(.contact-float-toggle-close) {
     transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.contact-float.is-open .contact-float-toggle > [data-lucide="headset"] {
+.contact-float.is-open .contact-float-toggle > :not(.contact-float-toggle-close) {
     opacity: 0;
     transform: rotate(90deg);
 }
@@ -785,6 +795,23 @@
     transition-delay: 0.04s;
 }
 
+#contactLivechat {
+    background: #8b5cf6;
+    color: #fff;
+    transition-delay: 0.08s;
+}
+
+#socialFacebook {
+    background: #1877f2;
+    color: #fff;
+}
+
+#socialTelegram {
+    background: #229ed9;
+    color: #fff;
+    transition-delay: 0.04s;
+}
+
 .contact-float-item:hover {
     transform: scale(1.1);
 }
@@ -796,11 +823,29 @@
 
 .contact-float.is-open #contactWhatsapp {
     transform: scale(1);
+    bottom: 72px;
+    right: 0;
+}
+
+.contact-float.is-open #contactTelegram {
+    transform: scale(1);
+    bottom: 55px;
+    right: 62px;
+}
+
+.contact-float.is-open #contactLivechat {
+    transform: scale(1);
+    bottom: 6px;
+    right: 101px;
+}
+
+.contact-float.is-open #socialFacebook {
+    transform: scale(1);
     bottom: 64px;
     right: 4px;
 }
 
-.contact-float.is-open #contactTelegram {
+.contact-float.is-open #socialTelegram {
     transform: scale(1);
     bottom: 46px;
     right: 58px;
@@ -811,6 +856,15 @@
 }
 
 .contact-float.is-open #contactTelegram:hover {
+    transform: scale(1.12);
+}
+
+.contact-float.is-open #contactLivechat:hover {
+    transform: scale(1.12);
+}
+
+.contact-float.is-open #socialFacebook:hover,
+.contact-float.is-open #socialTelegram:hover {
     transform: scale(1.12);
 }
 
