@@ -379,6 +379,7 @@ body.download-bar-visible .site-header {
 .hero {
     position: relative;
     padding: 52px 0 40px;
+    gap: 0;
 }
 
 #starfield {
@@ -399,6 +400,10 @@ body.download-bar-visible .site-header {
     position: relative;
     z-index: 1;
     text-align: center;
+}
+
+.hero-content > h1:first-child {
+    margin-top: 0;
 }
 
 .hero-badge {
@@ -522,4 +527,3 @@ body.download-bar-visible .site-header {
     0%, 100% { opacity: 0.3; transform: scale(1); }
     50% { opacity: 0.6; transform: scale(1.05); }
 }
-

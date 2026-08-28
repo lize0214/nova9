@@ -189,6 +189,12 @@ export default {
     contact: {
         label: '联系客服',
         whatsapp: 'WhatsApp',
+        telegram: 'Telegram',
+        livechat: '在线客服'
+    },
+    social: {
+        label: '社交媒体',
+        facebook: 'Facebook',
         telegram: 'Telegram'
     },
     whyChooseUs: {

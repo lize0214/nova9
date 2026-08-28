@@ -10,6 +10,7 @@ import { initScrollReveal } from '../js/modules/scrollReveal.js';
 import { initLiveTransaction } from '../js/modules/liveTransaction.js';
 import { initDownloadBar } from '../js/modules/downloadBar.js';
 import { initContactFloat } from '../js/modules/contactFloat.js';
+import { initSocialFloat } from '../js/modules/socialFloat.js';
 import { initLazyMedia } from '../js/modules/lazyMedia.js';
 import { initBgEffects } from '../js/modules/bgEffects.js';
 import { initGlobe3d } from '../js/modules/globe3d.js';
@@ -24,6 +25,7 @@ export function bootstrapLegacyModules(force = false) {
     initBgEffects();
     initGlobe3d();
     initContactFloat();
+    initSocialFloat();
     initDownloadBar();
     initNavigation();
     initCounterAnimation();

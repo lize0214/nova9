@@ -3,6 +3,9 @@ export const APP_CONFIG = {
     siteName: 'NOVA9 SG',
     telegram: 'Nova9sg_Bot',
     whatsapp: '60179336870',
+    livechat: 'https://nova9sgd.com/chatroom',
+    socialFacebook: 'https://www.facebook.com/n9singaporefb',
+    socialTelegram: 'https://t.me/nova9sg',
     theme: {
         primary: '#be9431',
         primaryDeep: '#967022',

@@ -189,6 +189,12 @@ export default {
     contact: {
         label: 'Contact Us',
         whatsapp: 'WhatsApp',
+        telegram: 'Telegram',
+        livechat: 'Livechat'
+    },
+    social: {
+        label: 'Social Media',
+        facebook: 'Facebook',
         telegram: 'Telegram'
     },
     whyChooseUs: {
